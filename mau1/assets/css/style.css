@@ -1,0 +1,463 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* section 1 */
+/* ===== Cover Section ===== */
+.cover-section {
+  position: relative;
+  min-height: 100vh;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  padding: 12vh 16px;
+}
+
+.cover-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+}
+
+.cover-slide.active {
+  opacity: 1;
+}
+
+.cover-slide-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.cover-slide-inner img {
+  width: 33.3333%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.18;
+}
+
+
+/* Content */
+.cover-content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+/* Text */
+.cover-subtitle {
+  font-size: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.cover-title {
+  font-size: 72px;
+  font-family: 'Brush Script MT', cursive;
+  color: #2b2b2b;
+  margin-bottom: 20px;
+}
+
+.cover-title span {
+  font-size: 48px;
+  margin: 0 8px;
+}
+
+.cover-date {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin-bottom: 32px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.cover-date span {
+  padding: 10px 16px;
+  border: 1px solid #e0d8c8;
+  background: #fff;
+}
+
+/* Button */
+.cover-btn {
+  position: relative;
+  padding: 14px 36px;
+  font-size: 16px;
+  border-radius: 40px;
+  border: 1px solid #cbb994;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  color: #cbb994;
+  overflow: hidden;
+  /* QUAN TRỌNG */
+  transition: all 0.4s ease;
+}
+
+/* Lớp "rượu vang" */
+.cover-btn::before {
+  content: "";
+  position: absolute;
+  border-radius: 40px;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(120deg,
+      #7b1e3c,
+      #a9445f,
+      #cbb994);
+  z-index: -1;
+  transition: width 0.6s ease;
+}
+
+/* Hover */
+.cover-btn:hover {
+  color: #fff;
+}
+
+.cover-btn:hover::before {
+  width: 100%;
+}
+
+
+/* Divider */
+.cover-divider {
+  width: 120px;
+  height: 1px;
+  background: #d8cfc0;
+  margin: 48px auto;
+}
+
+/* Message */
+.cover-message h3 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.cover-message p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.cover-sign {
+  margin-top: 16px;
+  font-weight: 600;
+}
+
+/* Parents */
+.cover-parents {
+  margin-top: 48px;
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.parent-box {
+  background: #fff;
+  padding: 24px 32px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .12);
+  min-width: 260px;
+}
+
+.parent-box h4 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.parent-box p {
+  font-size: 15px;
+  margin: 6px 0;
+}
+
+.parent-box p strong {
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 576px) {
+  .cover-title {
+    font-size: 48px;
+  }
+
+  .cover-date {
+    flex-wrap: wrap;
+  }
+
+  .cover-light {
+    width: 140px;
+  }
+
+  .cover-slide-inner img {
+    width: 100%;
+  }
+
+  .cover-slide-inner img:nth-child(2),
+  .cover-slide-inner img:nth-child(3) {
+    display: none;
+  }
+}
+
+/* end: section 1 */
+/* section 5 */
+.gallery-section {
+  padding: 10vh 0;
+  background: #fffdf8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.gallery__title {
+  text-align: center;
+  font-size: 64px;
+  font-family: 'Brush Script MT', cursive;
+  color: #333;
+}
+
+.gallery-heart {
+  position: relative;
+  width: min(90vw, 760px);
+  aspect-ratio: 1 / 1.05;
+}
+
+.gallery-heart .light {
+  background: transparent;
+  border: none;
+  position: absolute;
+  width: 36%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 10%;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+/* Common image */
+.gallery-heart img {
+  position: absolute;
+  object-fit: cover;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+}
+
+/* ===== Center ===== */
+.heart-center {
+  position: absolute;
+  width: 36%;
+  height: 40%;
+  top: 34%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.heart-center img {
+  width: 100%;
+  height: 100%;
+}
+
+.img1 {
+  width: 14%;
+  height: 10%;
+  top: 22%;
+  left: 32%;
+}
+
+.img2 {
+  width: 14%;
+  height: 10%;
+  top: 22%;
+  right: 31%;
+}
+
+.img3 {
+  width: 7%;
+  height: 6%;
+  top: 19%;
+  left: 9%;
+}
+
+.img4 {
+  width: 25%;
+  height: 16%;
+  top: 27%;
+  left: 5%;
+}
+
+.img5 {
+  width: 9%;
+  height: 9%;
+  top: 45%;
+  left: 5%;
+}
+
+.img6 {
+  width: 14%;
+  height: 14%;
+  top: 45%;
+  left: 16%;
+}
+
+.img7 {
+  width: 12%;
+  height: 8%;
+  top: 17%;
+  left: 18%;
+}
+
+.img8 {
+  width: 12%;
+  height: 8%;
+  top: 17%;
+  left: 70%;
+}
+
+.img9 {
+  width: 7%;
+  height: 6%;
+  top: 19%;
+  left: 84%;
+}
+
+.img10 {
+  width: 25%;
+  height: 16%;
+  top: 27%;
+  left: 70%;
+}
+
+.img11 {
+  width: 14%;
+  height: 14%;
+  top: 45%;
+  left: 70%;
+}
+
+.img12 {
+  width: 9%;
+  height: 9%;
+  top: 45%;
+  left: 86%;
+}
+
+.img13 {
+  width: 14%;
+  height: 11%;
+  top: 76%;
+  left: 43%;
+}
+
+.img14 {
+  width: 8%;
+  height: 8%;
+  top: 76%;
+  left: 33%;
+}
+
+.img15 {
+  width: 8%;
+  height: 8%;
+  top: 76%;
+  left: 59%;
+}
+
+.img16 {
+  width: 9%;
+  height: 9%;
+  top: 61%;
+  left: 21%;
+}
+
+.img17 {
+  width: 9%;
+  height: 9%;
+  top: 61%;
+  left: 70%;
+}
+
+/* hover giữa */
+.heart-center:hover img,
+.img1:hover,
+.img2:hover,
+.img13:hover,
+.img14:hover,
+.img15:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.heart-center img,
+.img1,
+.img2,
+.img13,
+.img14,
+.img15 {
+  transition: transform 0.3s ease;
+}
+
+/* hover phải */
+.img8:hover,
+.img9:hover,
+.img10:hover,
+.img11:hover,
+.img12:hover,
+.img17:hover {
+  transform: scale(1.05) rotate(-10deg);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.img8,
+.img9,
+.img10,
+.img11,
+.img12,
+.img17 {
+  transition: transform 0.3s ease;
+}
+
+/* hover trái */
+.img3:hover,
+.img4:hover,
+.img5:hover,
+.img6:hover,
+.img7:hover,
+.img16:hover {
+  transform: scale(1.05) rotate(10deg);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* ===== Mobile tweak ===== */
+@media (max-width: 576px) {
+  .gallery-heart {
+    width: 95vw;
+  }
+
+  .gallery-heart img {
+    padding: 4px;
+  }
+}
+
+/* end: section 5 */
