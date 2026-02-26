@@ -155,7 +155,7 @@
                     <div class="timeline-item" data-aos="fade-right">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <div class="timeline-date">20/01/2026</div>
+                            <div class="timeline-date">20/01/2027</div>
                             <h4 class="timeline-title">Ngày cưới</h4>
                             <p class="timeline-desc">Và rồi ngày trọng đại đã đến. Chúng tôi sẽ cùng nhau bước vào
                                 chương mới của cuộc đời.</p>
@@ -181,7 +181,7 @@
                         <div class="event-card-body">
                             <h3 class="event-name">Lễ Ăn Hỏi</h3>
                             <p class="event-time">09:00 - 10:30</p>
-                            <p class="event-date">20 Tháng 01, 2026</p>
+                            <p class="event-date">20 Tháng 01, 2027</p>
                             <div class="event-divider"></div>
                             <p class="event-location">Tại nhà gái</p>
                             <p class="event-address">121 Đặng Huy Trứ, Hoà Minh, Liên Chiểu, Đà Nẵng</p>
@@ -199,7 +199,7 @@
                         <div class="event-card-body">
                             <h3 class="event-name">Tiệc Cưới</h3>
                             <p class="event-time">11:00 - 14:00</p>
-                            <p class="event-date">20 Tháng 01, 2026</p>
+                            <p class="event-date">20 Tháng 01, 2027</p>
                             <div class="event-divider"></div>
                             <p class="event-location">Nhà Hàng Hoa Hồng HiWeb</p>
                             <p class="event-address">121 Đặng Huy Trứ, Hoà Minh, Liên Chiểu, Đà Nẵng 50000</p>
@@ -217,7 +217,7 @@
                         <div class="event-card-body">
                             <h3 class="event-name">Tiệc Cưới</h3>
                             <p class="event-time">17:00 - 21:00</p>
-                            <p class="event-date">20 Tháng 01, 2026</p>
+                            <p class="event-date">20 Tháng 01, 2027</p>
                             <div class="event-divider"></div>
                             <p class="event-location">Nhà Hàng Tiệc Cưới HiWeb</p>
                             <p class="event-address">121 Đặng Huy Trứ, Hoà Minh, Liên Chiểu, Đà Nẵng 50000</p>
@@ -297,23 +297,59 @@
         </section>
 
         <!-- section 7 -->
-        <section class="rsvp-section">
+        <section class="rsvp-section" id="rsvp-section">
             <div class="rsvp-inner">
                 <h2 class="rsvp-title" data-aos="fade-up">Xác Nhận Tham Dự</h2>
-                <p class="rsvp-subtitle" data-aos="fade-up" data-aos-delay="100">Giúp chúng tôi chuẩn bị chu đáo hơn</p>
+                <p class="rsvp-subtitle" data-aos="fade-up" data-aos-delay="100">Rất vui được đón tiếp bạn trong ngày trọng đại</p>
 
-                <div class="rsvp-options" data-aos="fade-up" data-aos-delay="200">
-                    <div class="rsvp-option" onclick="selectRsvp(this, true)">
-                        <div class="rsvp-option-icon">✅</div>
-                        <h4>Tôi sẽ đến</h4>
+                <form class="rsvp-form" data-aos="fade-up" data-aos-delay="200">
+                    <div class="rsvp-field">
+                        <label>Họ và tên</label>
+                        <input type="text" placeholder="Nhập họ tên của bạn" required>
                     </div>
-                    <div class="rsvp-option" onclick="selectRsvp(this, false)">
-                        <div class="rsvp-option-icon">❌</div>
-                        <h4>Tôi không đến được</h4>
-                    </div>
-                </div>
 
-                <p class="rsvp-note" data-aos="fade-up" data-aos-delay="300">Vui lòng xác nhận trước ngày 15/01/2026</p>
+                    <div class="rsvp-attendance">
+                        <label>Bạn có thể tham dự không?</label>
+                        <div class="attendance-options">
+                            <label class="attendance-option">
+                                <input type="radio" name="attendance" value="yes" checked>
+                                <span class="option-box">Có</span>
+                            </label>
+                            <label class="attendance-option">
+                                <input type="radio" name="attendance" value="no">
+                                <span class="option-box">Không</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="rsvp-guests">
+                        <label>Số người đi cùng (bao gồm bạn)</label>
+                        <div class="guest-selector">
+                            <button type="button" class="guest-btn minus" onclick="changeGuests(-1)">−</button>
+                            <span class="guest-count" id="guestCount">1</span>
+                            <button type="button" class="guest-btn plus" onclick="changeGuests(1)">+</button>
+                        </div>
+                        <div class="guest-options">
+                            <button type="button" class="guest-num" onclick="setGuests(1)">1</button>
+                            <button type="button" class="guest-num" onclick="setGuests(2)">2</button>
+                            <button type="button" class="guest-num" onclick="setGuests(3)">3</button>
+                            <button type="button" class="guest-num" onclick="setGuests(4)">4</button>
+                            <button type="button" class="guest-num" onclick="setGuests(5)">5</button>
+                            <button type="button" class="guest-num" onclick="setGuests(6)">6</button>
+                            <button type="button" class="guest-num" onclick="setGuests(7)">7</button>
+                            <button type="button" class="guest-num" onclick="setGuests(8)">8</button>
+                            <button type="button" class="guest-num" onclick="setGuests(9)">9</button>
+                            <button type="button" class="guest-num" onclick="setGuests(10)">10</button>
+                        </div>
+                    </div>
+
+                    <div class="rsvp-field">
+                        <label>Lời nhắn (không bắt buộc)</label>
+                        <textarea placeholder="Viết lời chúc cho cô dâu chú rể..."></textarea>
+                    </div>
+
+                    <button type="submit" class="rsvp-submit">Gửi Xác Nhận</button>
+                </form>
             </div>
         </section>
 
@@ -321,14 +357,14 @@
         <section id="qr-section" class="wish-section">
             <div class="wish-bg"></div>
 
-            <h2 class="wish-title" data-aos="fade-up">Gửi Lời Chúc</h2>
+            <h2 class="wish-title" data-aos="fade-up">Sổ Lưu Bút</h2>
             <p class="wish-subtitle" data-aos="fade-up" data-aos-delay="100">
-                Mỗi lời chúc của bạn là một kỷ niệm quý giá 💖
+                Cảm ơn bạn đã viết nên một phần ký ức của chúng tôi.
             </p>
 
             <form class="wish-form" data-aos="fade-up" data-aos-delay="200">
                 <div class="wish-field">
-                    <input type="text" placeholder="Tên của bạn ✍️" required />
+                    <input type="text" placeholder="Tên của bạn " required />
                 </div>
 
                 <div class="wish-field">
@@ -432,8 +468,8 @@
     <!-- common -->
     <script src="./assets/script/heart-hover.js"></script>
     <script src="./assets/script/scroll-anim.js"></script>
+    <script src="./assets/script/rsvp.js"></script>
     <!-- section -->
-    <script src="assets/script/section1.js"></script>
     <script src="./assets/script/section-5.js"></script>
     <script src="./assets/script/section6.js"></script>
     <script src="./assets/script/section8.js"></script>

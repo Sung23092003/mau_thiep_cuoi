@@ -1394,70 +1394,213 @@ body {
 .rsvp-section {
   position: relative;
   padding: 12vh 16px;
-  background: var(--wine-bg);
+  background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
   text-align: center;
 }
 
 .rsvp-inner {
-  max-width: 600px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
 .rsvp-title {
-  font-size: 64px;
+  font-size: 48px;
   font-family: 'Brush Script MT', cursive;
   color: var(--wine);
   margin-bottom: 8px;
 }
 
 .rsvp-subtitle {
-  font-size: 18px;
-  color: var(--wine-light);
+  font-size: 14px;
+  color: #999;
   margin-bottom: 48px;
+  letter-spacing: 2px;
 }
 
-.rsvp-options {
+.rsvp-form {
+  background: #fff;
+  padding: 40px 36px;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+}
+
+.rsvp-field {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.rsvp-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.rsvp-field input,
+.rsvp-field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.rsvp-field input:focus,
+.rsvp-field textarea:focus {
+  border-color: var(--wine);
+}
+
+.rsvp-field textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Attendance Options */
+.rsvp-attendance {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.rsvp-attendance label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.attendance-options {
   display: flex;
-  justify-content: center;
-  gap: 24px;
-  margin-bottom: 40px;
+  gap: 16px;
 }
 
-.rsvp-option {
+.attendance-option {
   flex: 1;
-  max-width: 200px;
-  padding: 32px 24px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 20px;
-  border: 2px solid rgba(114, 47, 55, 0.1);
   cursor: pointer;
+}
+
+.attendance-option input {
+  display: none;
+}
+
+.attendance-option .option-box {
+  display: block;
+  padding: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #888;
   transition: all 0.3s ease;
 }
 
-.rsvp-option:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 40px rgba(114, 47, 55, 0.15);
-}
-
-.rsvp-option.selected {
+.attendance-option input:checked + .option-box {
   border-color: var(--wine);
-  background: rgba(114, 47, 55, 0.05);
+  background: var(--wine);
+  color: #fff;
 }
 
-.rsvp-option-icon {
-  font-size: 40px;
+/* Guest Selector */
+.rsvp-guests {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.rsvp-guests label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+
+.guest-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
   margin-bottom: 16px;
 }
 
-.rsvp-option h4 {
-  font-size: 18px;
-  color: var(--wine-dark);
+.guest-btn {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
 }
 
-.rsvp-note {
+.guest-btn:hover {
+  border-color: var(--wine);
+  color: var(--wine);
+}
+
+.guest-count {
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--wine);
+  min-width: 60px;
+  text-align: center;
+}
+
+.guest-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.guest-num {
+  padding: 8px 14px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  border-radius: 2px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.guest-num:hover {
+  border-color: var(--wine);
+  color: var(--wine);
+}
+
+.guest-num.active {
+  border-color: var(--wine);
+  background: var(--wine);
+  color: #fff;
+}
+
+/* Submit Button */
+.rsvp-submit {
+  width: 100%;
+  padding: 18px;
+  background: var(--wine);
+  color: #fff;
+  border: none;
+  border-radius: 2px;
   font-size: 14px;
-  color: #888;
-  margin-top: 32px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.rsvp-submit:hover {
+  background: #a32828;
 }
 
 /* ===== MAP SECTION ===== */
