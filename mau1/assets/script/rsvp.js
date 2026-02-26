@@ -1,4 +1,4 @@
-// RSVP Form Functions
+// RSVP Form
 let currentGuests = 1;
 
 function changeGuests(delta) {
@@ -16,7 +16,6 @@ function setGuests(num) {
 function updateGuestDisplay() {
   document.getElementById('guestCount').textContent = currentGuests;
   
-  // Update active state on buttons
   document.querySelectorAll('.guest-num').forEach(btn => {
     btn.classList.remove('active');
     if (parseInt(btn.textContent) === currentGuests) {
@@ -25,7 +24,7 @@ function updateGuestDisplay() {
   });
 }
 
-// QR Modal Functions
+// QR Modal 
 function openQrModal() {
   const modal = document.getElementById('qrModal');
   if (modal) {
@@ -42,7 +41,7 @@ function closeQrModal() {
   }
 }
 
-// Full QR Modal Functions
+// Full QR Modal
 function openFullQrModal() {
   closeQrModal();
   const modal = document.getElementById('fullQrModal');
@@ -59,7 +58,7 @@ function closeFullQrModal() {
   }
 }
 
-// Close modal on ESC key
+// Close modal = ESC key
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeQrModal();

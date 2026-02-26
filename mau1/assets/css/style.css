@@ -382,7 +382,7 @@ body {
 /* section 5 */
 .gallery-section {
   padding: 10vh 0;
-  background: var(--wine-bg);
+  background: linear-gradient(180deg, #faf5f5 0%, #fff 50%, #faf5f5 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -633,8 +633,8 @@ body {
 /* ===== SECTION LỜI CHÚC – NÀNG THƠ ===== */
 .wish-section {
   position: relative;
-  padding: 12vh 16px;
-  background: linear-gradient(180deg, var(--wine-bg), #f0e6e4);
+  padding: 10vh 16px;
+  background: linear-gradient(180deg, #faf5f5 0%, #fff 50%, #faf5f5 100%);
   text-align: center;
   overflow: hidden;
 }
@@ -1009,8 +1009,8 @@ body {
 /* ===== SECTION 3: OUR STORY ===== */
 .our-story-section {
   position: relative;
-  padding: 12vh 16px;
-  background: var(--wine-bg);
+  padding: 10vh 16px;
+  background: linear-gradient(180deg, #faf5f5 0%, #fff 50%, #faf5f5 100%);
   overflow: hidden;
 }
 
@@ -1532,6 +1532,56 @@ body {
   border-color: var(--wine);
   background: var(--wine);
   color: #fff;
+}
+
+/* Event Checkbox Selection */
+.rsvp-event-select {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.rsvp-event-select > label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.event-checkbox-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.event-checkbox {
+  cursor: pointer;
+}
+
+.event-checkbox input {
+  display: none;
+}
+
+.event-checkbox-box {
+  display: block;
+  padding: 14px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.event-checkbox:hover .event-checkbox-box {
+  border-color: #ccc;
+}
+
+.event-checkbox input:checked + .event-checkbox-box {
+  border-color: var(--wine);
+  background: linear-gradient(135deg, rgba(183, 0, 0, 0.08) 0%, rgba(183, 0, 0, 0.04) 100%);
+  color: var(--wine);
 }
 
 /* Guest Selector */
@@ -2128,6 +2178,60 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* Thank Date */
+.thank-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  padding: 28px 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(183, 0, 0, 0.12);
+  display: inline-flex;
+}
+
+.thank-date-day {
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--wine);
+  line-height: 1;
+}
+
+.thank-date-divider {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, var(--wine), transparent);
+}
+
+.thank-date-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.thank-date-month {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--wine-dark);
+}
+
+.thank-date-year {
+  font-size: 18px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.thank-lunar {
+  font-size: 16px;
+  color: #999;
+  font-style: italic;
+  margin-top: -30px;
+  margin-bottom: 36px;
+  letter-spacing: 1px;
 }
 
 .thank-title {
