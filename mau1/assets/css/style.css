@@ -1603,6 +1603,465 @@ body {
   background: #a32828;
 }
 
+/* Main Radio Question */
+.rsvp-main-question {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.rsvp-main-question > label {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.main-radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.main-radio {
+  cursor: pointer;
+}
+
+.main-radio input {
+  display: none;
+}
+
+.main-radio-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.main-radio-box .radio-icon {
+  font-size: 24px;
+}
+
+.main-radio-box .radio-text {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.main-radio input:checked + .main-radio-box {
+  border-color: var(--wine);
+  background: linear-gradient(135deg, rgba(183, 0, 0, 0.04) 0%, rgba(183, 0, 0, 0.08) 100%);
+}
+
+.main-radio input:checked + .main-radio-box .radio-text {
+  color: var(--wine);
+  font-weight: 600;
+}
+
+.main-radio:hover .main-radio-box {
+  border-color: #ccc;
+}
+
+/* ===== GIFT / LIXI SECTION ===== */
+.gift-section {
+  text-align: center;
+  padding: 40px 16px 60px;
+  background: linear-gradient(180deg, #fff 0%, #faf5f5 100%);
+}
+
+.gift-text {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.lixi-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.lixi-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  animation: lixiShake 2s ease-in-out infinite;
+}
+
+@keyframes lixiShake {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  10% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  20% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  30% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+  40% {
+    transform: rotate(10deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.lixi-btn:hover .lixi-icon {
+  animation: lixiShake 0.5s ease-in-out infinite;
+}
+
+/* ===== QR MODAL ===== */
+.qr-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-modal.active {
+  display: flex;
+}
+
+.qr-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.qr-modal-content {
+  position: relative;
+  background: #fff;
+  padding: 32px;
+  border-radius: 20px;
+  max-width: 90vw;
+  text-align: center;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+  animation: qrModalIn 0.3s ease;
+}
+
+@keyframes qrModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.qr-modal-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--wine);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.qr-modal-close:hover {
+  transform: rotate(90deg);
+  background: #a32828;
+}
+
+.qr-frame {
+  background: linear-gradient(135deg, var(--wine) 0%, #d4a574 50%, var(--wine) 100%);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(183, 0, 0, 0.3);
+}
+
+.qr-image {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.qr-text {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.qr-frame {
+  cursor: pointer;
+  position: relative;
+}
+
+.qr-view-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.3);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* ===== BANK MODAL ===== */
+.bank-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  align-items: center;
+  justify-content: center;
+}
+
+.bank-modal.active {
+  display: flex;
+}
+
+.bank-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+}
+
+.bank-modal-content {
+  position: relative;
+  background: #fff;
+  border-radius: 24px;
+  max-width: 700px;
+  width: 90vw;
+  overflow: hidden;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.4);
+  animation: bankModalIn 0.4s ease;
+}
+
+@keyframes bankModalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bank-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--wine);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.bank-modal-close:hover {
+  transform: rotate(90deg);
+  background: #a32828;
+}
+
+.bank-frame {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bank-left {
+  background: linear-gradient(135deg, var(--wine) 0%, #d4a574 100%);
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bank-qr-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.bank-right {
+  padding: 32px;
+  text-align: left;
+}
+
+.bank-title {
+  font-size: 20px;
+  color: var(--wine);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.bank-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bank-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bank-label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bank-value {
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-btn {
+  padding: 6px 12px;
+  font-size: 12px;
+  border: 1px solid var(--wine);
+  background: transparent;
+  color: var(--wine);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: var(--wine);
+  color: #fff;
+}
+
+.bank-note {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--wine);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .bank-frame {
+    grid-template-columns: 1fr;
+  }
+  
+  .bank-left {
+    padding: 24px;
+  }
+  
+  .bank-qr-image {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .bank-right {
+    padding: 24px;
+  }
+}
+
+/* ===== FULL QR MODAL ===== */
+.full-qr-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10002;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-qr-modal.active {
+  display: flex;
+}
+
+.full-qr-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.full-qr-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.full-qr-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: fullQrIn 0.3s ease;
+}
+
+@keyframes fullQrIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.full-qr-close {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.full-qr-close:hover {
+  background: var(--wine);
+  transform: rotate(90deg);
+}
+
 /* ===== MAP SECTION ===== */
 .map-section {
   position: relative;

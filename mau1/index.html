@@ -308,16 +308,20 @@
                         <input type="text" placeholder="Nhập họ tên của bạn" required>
                     </div>
 
-                    <div class="rsvp-attendance">
-                        <label>Bạn có thể tham dự không?</label>
-                        <div class="attendance-options">
-                            <label class="attendance-option">
-                                <input type="radio" name="attendance" value="yes" checked>
-                                <span class="option-box">Có</span>
+                    <div class="rsvp-main-question">
+                        <label>Bạn sẽ tham dự chứ? *</label>
+                        <div class="main-radio-options">
+                            <label class="main-radio">
+                                <input type="radio" name="main_attendance" value="yes" checked>
+                                <span class="main-radio-box">
+                                    <span class="radio-text">Tôi sẽ tham dự</span>
+                                </span>
                             </label>
-                            <label class="attendance-option">
-                                <input type="radio" name="attendance" value="no">
-                                <span class="option-box">Không</span>
+                            <label class="main-radio">
+                                <input type="radio" name="main_attendance" value="no">
+                                <span class="main-radio-box">
+                                    <span class="radio-text">Rất tiếc, tôi không thể tham dự</span>
+                                </span>
                             </label>
                         </div>
                     </div>
@@ -380,6 +384,36 @@
             <!-- Tim bay -->
             <div class="floating-hearts"></div>
         </section>
+
+        <!-- Gift / Lixi Section -->
+        <div class="gift-section">
+            <p class="gift-text">Gửi quà mừng cưới đến cô dâu, chú rể ❤️</p>
+            <button class="lixi-btn" onclick="openQrModal()">
+                <img src="assets/img/icons/lixi.png" alt="Lì xì" class="lixi-icon">
+            </button>
+        </div>
+
+        <!-- QR Modal -->
+        <div class="qr-modal" id="qrModal">
+            <div class="qr-modal-overlay" onclick="closeQrModal()"></div>
+            <div class="qr-modal-content">
+                <button class="qr-modal-close" onclick="closeQrModal()">&times;</button>
+                <div class="qr-frame" onclick="openFullQrModal()">
+                    <img src="assets/img/qr.png" alt="QR Code" class="qr-image">
+                    <div class="qr-view-hint">Click để phóng to</div>
+                </div>
+                <p class="qr-text">Quét QR để gửi quà mừng 💕</p>
+            </div>
+        </div>
+
+        <!-- Full QR Modal -->
+        <div class="full-qr-modal" id="fullQrModal">
+            <div class="full-qr-overlay" onclick="closeFullQrModal()"></div>
+            <div class="full-qr-content">
+                <button class="full-qr-close" onclick="closeFullQrModal()">&times;</button>
+                <img src="assets/img/qr.png" alt="QR Code" class="full-qr-image">
+            </div>
+        </div>
 
         <!-- section 9 -->
         <section class="map-section">

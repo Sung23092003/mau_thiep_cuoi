@@ -25,6 +25,48 @@ function updateGuestDisplay() {
   });
 }
 
+// QR Modal Functions
+function openQrModal() {
+  const modal = document.getElementById('qrModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeQrModal() {
+  const modal = document.getElementById('qrModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Full QR Modal Functions
+function openFullQrModal() {
+  closeQrModal();
+  const modal = document.getElementById('fullQrModal');
+  if (modal) {
+    modal.classList.add('active');
+  }
+}
+
+function closeFullQrModal() {
+  const modal = document.getElementById('fullQrModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeQrModal();
+    closeFullQrModal();
+  }
+});
+
 // Set initial active state
 document.addEventListener('DOMContentLoaded', function() {
   updateGuestDisplay();
