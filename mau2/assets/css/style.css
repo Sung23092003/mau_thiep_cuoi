@@ -1603,6 +1603,8 @@ body {
   text-align: center;
   box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
   animation: qrModalIn 0.3s ease;
+  width: 280px;
+  height: 280px;
 }
 
 @keyframes qrModalIn {
@@ -1625,7 +1627,7 @@ body {
   border-radius: 50%;
   border: none;
   background: var(--white);
-  color: var(--black);
+  color: hsl(0, 59%, 55%);
   font-size: 24px;
   cursor: pointer;
   display: flex;
@@ -1637,30 +1639,35 @@ body {
 
 .qr-modal-close:hover {
   transform: rotate(90deg);
-  background: #ddd;
+  opacity: 0.8;
 }
 
 .qr-frame {
-  background: linear-gradient(135deg, #333 0%, #666 50%, #333 100%);
+  background: linear-gradient(135deg, var(--wine) 0%, #d4a574 50%, var(--wine) 100%);
   padding: 16px;
   border-radius: 12px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  position: relative;
+  box-shadow: 0 10px 40px rgba(183, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
 }
 
 .qr-image {
-  width: 280px;
-  height: 280px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   background: #fff;
   border-radius: 8px;
 }
 
 .qr-text {
-  margin-top: 20px;
+  margin-top: 6px;
   font-size: 16px;
-  color: #333;
+  color: #666;
+}
+
+.qr-frame {
+  cursor: pointer;
+  position: relative;
 }
 
 .qr-view-hint {
@@ -1668,10 +1675,10 @@ body {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 12px;
+  font-size: 11px;
   color: rgba(255,255,255,0.7);
-  background: rgba(0,0,0,0.5);
-  padding: 4px 12px;
+  background: rgba(0,0,0,0.3);
+  padding: 4px 10px;
   border-radius: 20px;
 }
 
