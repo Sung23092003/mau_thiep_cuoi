@@ -167,7 +167,7 @@
             </div>
             
             <div class="event-box featured" data-aos="fade-up" data-aos-delay="100">
-                <div class="event-icon"><img src="assets/img/icons/two-rose-champagne-glasses.webp" alt="" style="width:36px;"></div>
+                <div class="event-icon"><img src="assets/img/icons/two-rose-champagne-glasses.png" alt="" style="width:36px;"></div>
                 <div class="event-info">
                     <h3>Tiệc Cưới Nhà Gái</h3>
                     <p class="time">11:00 - 14:00</p>
@@ -199,12 +199,12 @@
         </div>
         
         <div class="gallery-masonry">
-            <div class="gallery-img" data-aos="zoom-in"><img class="gallery-img" src="assets/img/gallery/1.jpg" alt=""></div>
-            <div class="gallery-img" data-aos="fade-up" data-aos-delay="50"><img class="gallery-img" src="assets/img/gallery/2.jpg" alt=""></div>
-            <div class="gallery-img" data-aos="fade-up" data-aos-delay="100"><img class="gallery-img" src="assets/img/gallery/3.jpg" alt=""></div>
-            <div class="gallery-img" data-aos="fade-up" data-aos-delay="150"><img class="gallery-img" src="assets/img/gallery/4.jpg" alt=""></div>
-            <div class="gallery-img" data-aos="fade-up" data-aos-delay="200"><img class="gallery-img" src="assets/img/gallery/5.jpg" alt=""></div>
-            <div class="gallery-img" data-aos="fade-up" data-aos-delay="250"><img class="gallery-img" src="assets/img/gallery/6.jpg" alt=""></div>
+            <div class="gallery-img" data-aos="zoom-in" onclick="openFlipBook(0)"><img src="assets/img/gallery/1.jpg" alt=""></div>
+            <div class="gallery-img" data-aos="fade-up" data-aos-delay="50" onclick="openFlipBook(1)"><img src="assets/img/gallery/2.jpg" alt=""></div>
+            <div class="gallery-img" data-aos="fade-up" data-aos-delay="100" onclick="openFlipBook(2)"><img src="assets/img/gallery/3.jpg" alt=""></div>
+            <div class="gallery-img" data-aos="fade-up" data-aos-delay="150" onclick="openFlipBook(3)"><img src="assets/img/gallery/4.jpg" alt=""></div>
+            <div class="gallery-img" data-aos="fade-up" data-aos-delay="200" onclick="openFlipBook(4)"><img src="assets/img/gallery/5.jpg" alt=""></div>
+            <div class="gallery-img" data-aos="fade-up" data-aos-delay="250" onclick="openFlipBook(5)"><img src="assets/img/gallery/6.jpg" alt=""></div>
         </div>
     </section>
 
@@ -306,22 +306,23 @@
 
     <!-- QR Modal -->
     <div class="qr-modal" id="qrModal3">
-        <div class="qr-overlay"></div>
-        <div class="qr-box">
-            <button class="qr-close">&times;</button>
-            <div class="qr-img-box">
-                <img src="assets/img/qr.png" alt="QR">
+        <div class="qr-modal-overlay" onclick="closeQrModal3()"></div>
+        <div class="qr-modal-content">
+            <button class="qr-modal-close" onclick="closeQrModal3()">&times;</button>
+            <div class="qr-frame" onclick="openFullQrModal3()">
+                <img src="assets/img/qr.png" alt="QR Code" class="qr-image">
+                <div class="qr-view-hint">Click để phóng to</div>
             </div>
-            <p>Quét QR gửi quà mừng</p>
+            <p class="qr-text">Quét QR để gửi quà mừng 💕</p>
         </div>
     </div>
 
     <!-- Full QR -->
     <div class="full-qr-modal" id="fullQrModal3">
-        <div class="full-overlay"></div>
-        <div class="full-box">
-            <button class="full-close">&times;</button>
-            <img src="assets/img/qr.png" alt="QR">
+        <div class="full-qr-overlay" onclick="closeFullQrModal3()"></div>
+        <div class="full-qr-content">
+            <button class="full-qr-close" onclick="closeFullQrModal3()">&times;</button>
+            <img src="assets/img/qr.png" alt="QR Code" class="full-qr-image">
         </div>
     </div>
 
@@ -399,10 +400,90 @@
         </div>
     </div>
 
+    <!-- Flip Book Modal -->
+    <div class="flipbook-modal" id="flipbookModal">
+        <div class="flipbook-overlay"></div>
+        <div class="flipbook-container">
+            <button class="flipbook-close" onclick="closeFlipBook()">&times;</button>
+            <div class="flipbook-wrapper">
+                <input type="checkbox" id="flipbook-cover">
+                <input type="checkbox" id="flipbook-page1">
+                <input type="checkbox" id="flipbook-page2">
+                <input type="checkbox" id="flipbook-page3">
+                <input type="checkbox" id="flipbook-page4">
+                
+                <div id="flipbook">
+                    <div class="front_cover">
+                        <label for="flipbook-cover" id="flipbook-cover-label">
+                            <span class="flipbook-click-text">Bấm vào</span>
+                            <img src="assets/img/icons/curvearrow.gif" alt="" class="flipbook-gif">
+                        </label>
+                    </div>
+                    
+                    <div class="page" id="flip-page1">
+                        <div class="front_page">
+                            <label for="flipbook-page1"></label>
+                            <img class="edge_shading" src="assets/img/front_page_edge_shading.webp" alt="">
+                            <img class="front_content" id="flip-img-1" src="" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page1"></label>
+                            <img class="edge_shading" src="assets/img/back_page_edge_shading.webp" alt="">
+                            <img class="back_content" id="flip-img-2" src="" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="page" id="flip-page2">
+                        <div class="front_page">
+                            <label for="flipbook-page2"></label>
+                            <img class="edge_shading" src="assets/img/front_page_edge_shading.webp" alt="">
+                            <img class="front_content" id="flip-img-3" src="" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page2"></label>
+                            <img class="edge_shading" src="assets/img/back_page_edge_shading.webp" alt="">
+                            <img class="back_content" id="flip-img-4" src="" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="page" id="flip-page3">
+                        <div class="front_page">
+                            <label for="flipbook-page3"></label>
+                            <img class="edge_shading" src="assets/img/front_page_edge_shading.webp" alt="">
+                            <img class="front_content" id="flip-img-5" src="" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page3"></label>
+                            <img class="edge_shading" src="assets/img/back_page_edge_shading.webp" alt="">
+                            <img class="back_content" id="flip-img-6" src="" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="page" id="flip-page4">
+                        <div class="front_page">
+                            <label for="flipbook-page4"></label>
+                            <img class="edge_shading" src="assets/img/front_page_edge_shading.webp" alt="">
+                            <img class="front_content" id="flip-img-7" src="" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page4"></label>
+                            <img class="edge_shading" src="assets/img/back_page_edge_shading.webp" alt="">
+                            <img class="back_content" id="flip-img-8" src="" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="back_cover">
+                        <span class="back-cover-text">Phúc Quỳnh & Lê Hương</span>
+                        <span class="back-cover-date">20.01.2027</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/script/scroll-anim.js"></script>
     <script src="assets/script/countdown3.js"></script>
     <script src="assets/script/mau3-main.js"></script>
-    <script src="assets/script/section-5.js"></script>
 </body>
 
 </html>

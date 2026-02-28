@@ -1,3 +1,55 @@
+/* ===== FLIP BOOK ===== */
+const flipbookModal = document.getElementById('flipbookModal');
+
+const galleryImages = [
+    'assets/img/gallery/1.jpg',
+    'assets/img/gallery/2.jpg',
+    'assets/img/gallery/3.jpg',
+    'assets/img/gallery/4.jpg',
+    'assets/img/gallery/5.jpg',
+    'assets/img/gallery/6.jpg'
+];
+
+function openFlipBook(startIndex) {
+    if (!flipbookModal) return;
+    
+    // Reset all checkboxes
+    const checkboxes = flipbookModal.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(cb => cb.checked = false);
+    
+    // Distribute images to flip book pages (8 slots for 6 images)
+    // Loop images to fill all slots
+    for (let i = 1; i <= 8; i++) {
+        const imgElement = document.getElementById('flip-img-' + i);
+        if (imgElement) {
+            const srcIndex = (startIndex + (i - 1)) % galleryImages.length;
+            imgElement.src = galleryImages[srcIndex];
+        }
+    }
+    
+    flipbookModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFlipBook() {
+    if (flipbookModal) {
+        flipbookModal.classList.remove('active');
+        document.body.style.overflow = '';
+        
+        // Reset checkboxes when closing
+        const checkboxes = flipbookModal.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(cb => cb.checked = false);
+    }
+}
+
+// Close flip book on overlay click
+if (flipbookModal) {
+    const overlay = flipbookModal.querySelector('.flipbook-overlay');
+    if (overlay) {
+        overlay.addEventListener('click', closeFlipBook);
+    }
+}
+
 /* ===== QR MODAL ===== */
 const qrModal3 = document.getElementById('qrModal3');
 const fullQrModal3 = document.getElementById('fullQrModal3');
@@ -56,6 +108,7 @@ if (fullQrModal3) {
 // ESC key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
+        closeFlipBook();
         closeQrModal3();
         closeFullQrModal3();
     }

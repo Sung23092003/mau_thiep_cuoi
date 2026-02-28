@@ -26,6 +26,6 @@ let guestCount3 = 1;
 window.updateGuests3 = function(delta) {
     guestCount3 += delta;
     if (guestCount3 < 1) guestCount3 = 1;
-    if (guestCount3 > 10) guestCount3 = 10;
+    if (guestCount3 > 100) guestCount3 = 100;
     document.getElementById('guestCount3').textContent = guestCount3;
 }
