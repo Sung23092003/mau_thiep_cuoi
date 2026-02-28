@@ -1,4 +1,3 @@
-// Countdown Timer
 function updateCountdown() {
     const weddingDate = new Date('2027-01-26T11:00:00').getTime();
     const now = new Date().getTime();
@@ -20,7 +19,7 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// RSVP Selection
+// RSVP 
 function selectRsvp(element, attending) {
     document.querySelectorAll('.rsvp-option').forEach(opt => {
         opt.classList.remove('selected');

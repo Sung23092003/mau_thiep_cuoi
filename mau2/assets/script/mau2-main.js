@@ -46,7 +46,7 @@ window.closeFullQrModal = function() {
     }
 };
 
-// Close modal with ESC key
+// ESC 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeQrModal();

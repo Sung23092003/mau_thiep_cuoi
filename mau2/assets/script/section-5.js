@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const images = [];
     
-    // Zoom & Pan 
     let scale = 1;
     let isPanning = false;
     let startX = 0;
@@ -29,14 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let translateX = 0;
     let translateY = 0;
     
-    // Slideshow 
     let slideshowInterval = null;
     let progressInterval = null;
     let progress = 0;
     const SLIDE_DURATION = 5000;
     const PROGRESS_STEP = 10;
 
-    // Collect images
     galleryImages.forEach((img, index) => {
         if (img.src) {
             images.push({

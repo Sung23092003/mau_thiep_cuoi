@@ -58,7 +58,7 @@ function closeFullQrModal() {
   }
 }
 
-// Close modal = ESC key
+// ESC 
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
     closeQrModal();
@@ -66,7 +66,6 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-// Set initial active state
 document.addEventListener('DOMContentLoaded', function() {
   updateGuestDisplay();
 });

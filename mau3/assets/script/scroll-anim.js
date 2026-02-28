@@ -27,6 +27,38 @@ document.addEventListener('DOMContentLoaded', () => {
     section.style.opacity = '1';
   });
 
+  const revealSection = () => {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+      if (sectionTop < windowHeight * 0.85) {
+        section.classList.add('section-revealed');
+      }
+    });
+  };
+
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.add('section-revealed');
+  });
+
+  window.addEventListener('scroll', revealSection);
+
+  const coverSection = document.querySelector('.cover-section');
+  if (coverSection) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      coverSection.style.backgroundPositionY = scrolled * 0.3 + 'px';
+    });
+  }
+
+  const floatElements = document.querySelectorAll('[data-aos="float"]');
+  floatElements.forEach(el => {
+    el.addEventListener('animationend', () => {
+      el.style.animation = 'softFloat 3s ease-in-out infinite';
+    });
+  });
+
   // Music Player
   const musicToggle = document.getElementById('musicToggle3');
   const bgMusic = document.getElementById('bgMusic3');

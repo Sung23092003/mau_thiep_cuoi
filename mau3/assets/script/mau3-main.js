@@ -13,12 +13,10 @@ const galleryImages = [
 function openFlipBook(startIndex) {
     if (!flipbookModal) return;
     
-    // Reset all checkboxes
+    // Reset 
     const checkboxes = flipbookModal.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach(cb => cb.checked = false);
-    
-    // Distribute images to flip book pages (8 slots for 6 images)
-    // Loop images to fill all slots
+
     for (let i = 1; i <= 8; i++) {
         const imgElement = document.getElementById('flip-img-' + i);
         if (imgElement) {
@@ -42,7 +40,6 @@ function closeFlipBook() {
     }
 }
 
-// Close flip book on overlay click
 if (flipbookModal) {
     const overlay = flipbookModal.querySelector('.flipbook-overlay');
     if (overlay) {
@@ -105,7 +102,7 @@ if (fullQrModal3) {
     if (fullQrClose) fullQrClose.addEventListener('click', closeFullQrModal3);
 }
 
-// ESC key
+// ESC 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeFlipBook();

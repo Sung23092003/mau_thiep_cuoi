@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const images = [];
     
-    // Zoom & Pan state
     let scale = 1;
     let isPanning = false;
     let startX = 0;
@@ -29,14 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let translateX = 0;
     let translateY = 0;
     
-    // Slideshow state
     let slideshowInterval = null;
     let progressInterval = null;
     let progress = 0;
-    const SLIDE_DURATION = 5000; // 5 seconds
-    const PROGRESS_STEP = 10; // update every 10ms
+    const SLIDE_DURATION = 5000; 
+    const PROGRESS_STEP = 10; 
 
-    // Collect images
     galleryImages.forEach((img, index) => {
         if (img.src) {
             images.push({
@@ -94,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (slideshowInterval) resetSlideshowTimer();
     }
 
-    // --- Zoom Logic ---
     function updateZoom() {
         lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
         zoomLevel.textContent = `${Math.round(scale * 100)}%`;
@@ -129,7 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateZoom();
     });
 
-    // Panning
     lightboxContent.addEventListener('mousedown', (e) => {
         if (scale <= 1) return;
         isPanning = true;
@@ -153,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImg.style.cursor = 'grab';
     });
 
-    // Mouse wheel zoom
     lightboxContent.addEventListener('wheel', (e) => {
         e.preventDefault();
         const delta = e.deltaY > 0 ? -0.1 : 0.1;
@@ -165,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateZoom();
     }, { passive: false });
 
-    // Double click to zoom
     lightboxContent.addEventListener('dblclick', () => {
         if (scale > 1) resetZoom();
         else {

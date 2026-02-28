@@ -1,4 +1,4 @@
-// Countdown for Mau2
+// Countdown
 function updateCountdown2() {
     const weddingDate = new Date('2027-01-20T11:00:00').getTime();
     const now = new Date().getTime();
@@ -20,7 +20,6 @@ function updateCountdown2() {
 setInterval(updateCountdown2, 1000);
 updateCountdown2();
 
-// Guest counter
 let guestCount2 = 1;
 
 window.updateGuests2 = function(delta) {

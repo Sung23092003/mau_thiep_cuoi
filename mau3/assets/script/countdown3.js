@@ -20,7 +20,6 @@ function updateCountdown3() {
 setInterval(updateCountdown3, 1000);
 updateCountdown3();
 
-// Guest counter
 let guestCount3 = 1;
 
 window.updateGuests3 = function(delta) {
