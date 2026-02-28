@@ -211,9 +211,17 @@ section {
 .cover-date-box {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   gap: 15px;
   margin-bottom: 35px;
+}
+
+.date-circle-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 .date-circle {
@@ -254,6 +262,26 @@ section {
   color: var(--rose);
   font-style: italic;
   margin-top: 5px;
+}
+
+.cover-time {
+  display: inline-block;
+  font-size: 1rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border: 1px solid var(--rose);
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.date-lunar {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--rose);
+  font-style: italic;
+  margin-top: 8px;
 }
 
 .cover-quote {
@@ -1210,6 +1238,18 @@ section {
   color: var(--taupe);
 }
 
+.thank-time {
+  display: block;
+  font-size: 1rem;
+  color: var(--charcoal);
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border: 1px solid var(--rose);
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
 .thank-lunar {
   font-size: 0.9rem;
   color: var(--rose);
@@ -1532,7 +1572,8 @@ section {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
 }
 
 .front_cover {
@@ -1541,8 +1582,29 @@ section {
   transform-origin: center left;
   transition: transform 0.5s;
   z-index: 99;
-  background: linear-gradient(135deg, #fff5f5 0%, #e8dcd5 50%, #f5ebe8 100%);
-  border: 2px solid var(--rose);
+  background: linear-gradient(180deg, #fdfbf7 0%, #f5f0e8 50%, #ebe5db 100%);
+  border: 1px solid #d4c4b0;
+}
+
+.front_cover::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #c9b89a;
+  border-radius: 2px;
+}
+
+.front_cover::after {
+  content: '❣';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: #c9b89a;
 }
 
 .front_cover label {
@@ -1558,17 +1620,19 @@ section {
 
 .flipbook-click-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  color: var(--charcoal);
-  margin-bottom: 20px;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  color: #6b5f50;
+  margin-bottom: 25px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .flipbook-gif {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   animation: pulse 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
 
 @keyframes pulse {
@@ -1577,25 +1641,48 @@ section {
 }
 
 .back_cover {
-  background: linear-gradient(135deg, #e8dcd5 0%, #d5c4bc 50%, #c9b8ad 100%);
-  border: 2px solid var(--taupe);
+  background: linear-gradient(180deg, #fdfbf7 0%, #f5f0e8 50%, #ebe5db 100%);
+  border: 1px solid #d4c4b0;
   position: relative;
   overflow: hidden;
 }
 
+.back_cover::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #c9b89a;
+  border-radius: 2px;
+}
+
+.back_cover::after {
+  content: '❣';
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  font-size: 1.2rem;
+  color: #c9b89a;
+}
+
 .back-cover-text {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem;
-  color: var(--charcoal);
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  color: #6b5f50;
+  letter-spacing: 2px;
   text-align: center;
+  font-weight: 500;
 }
 
 .back-cover-date {
-  font-size: 0.9rem;
-  color: var(--taupe);
-  margin-top: 15px;
-  letter-spacing: 3px;
+  font-size: 0.8rem;
+  color: #8a7f70;
+  margin-top: 10px;
+  letter-spacing: 4px;
+  font-weight: 500;
 }
 
 .page {
@@ -1671,7 +1758,7 @@ section {
 .back_cover {
   position: relative;
   z-index: -1;
-  background-image: linear-gradient(135deg, var(--blush) 0%, var(--taupe) 100%);
+  background-image: linear-gradient(180deg, #fdfbf7 0%, #f5f0e8 50%, #ebe5db 100%);
 }
 
 #flip-page1 { z-index: 8; }
