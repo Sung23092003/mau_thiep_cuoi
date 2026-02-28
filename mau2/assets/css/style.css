@@ -189,6 +189,18 @@ body {
   margin-bottom: 35px;
 }
 
+.cover-time {
+  font-size: 20px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 2px;
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
 .date-num {
   font-family: 'Playfair Display', serif;
   font-size: 100px;
@@ -1152,6 +1164,18 @@ body {
   margin-bottom: 40px;
 }
 
+.thank-time {
+  font-size: 24px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 3px;
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
 .thank-sign {
   display: flex;
   align-items: center;
@@ -1185,7 +1209,6 @@ body {
 .thank-solar {
   font-size: 14px;
   color: var(--white);
-  margin-bottom: 20px;
   letter-spacing: 2px;
 }
 
