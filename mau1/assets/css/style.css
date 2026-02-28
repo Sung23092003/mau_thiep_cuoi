@@ -205,7 +205,7 @@ body {
   background: #fff;
   border-radius: 50px;
   box-shadow: 0 10px 40px rgba(183, 0, 0, 0.12);
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .cover-date-box .day {
@@ -268,11 +268,19 @@ body {
   box-shadow: 0 15px 40px rgba(183, 0, 0, 0.4);
 }
 
+/* Time */
+.cover-time {
+  font-size: 18px;
+  color: var(--wine);
+  font-weight: 600;
+  margin-top: 5px;
+}
+
 /* Lunar Date */
 .cover-lunar {
   font-size: 16px;
   color: #888;
-  margin-top: -20px;
+  margin-top: 10px;
   margin-bottom: 24px;
   font-style: italic;
 }
@@ -2280,11 +2288,17 @@ body {
   margin-top: 4px;
 }
 
+.thank-time {
+  font-size: 26px;
+  color: var(--wine);
+  font-weight: 600;
+}
+
 .thank-lunar {
   font-size: 16px;
   color: #999;
   font-style: italic;
-  margin-top: -30px;
+  margin-top: 10px;
   margin-bottom: 36px;
   letter-spacing: 1px;
 }
