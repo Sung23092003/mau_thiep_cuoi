@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
-    <title>Save the Date - Phúc Quỳnh & Lê Hương</title>
+    <title>Thiệp Cưới - Phúc Quỳnh & Lê Hương</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
@@ -60,6 +60,10 @@
             <button id="shutterBtn" class="shutter-btn" aria-label="Chụp ảnh">
                 <i class="fas fa-camera"></i>
             </button>
+            <div class="shutter-hint">
+                <img src="assets/img/icons/curvearrow.gif" alt="" class="hint-arrow">
+                <span>Bấm vào đây</span>
+            </div>
         </div>
 
         <div class="countdown-overlay" id="countdownOverlay"><span id="countdownNum"></span></div>
@@ -74,7 +78,7 @@
         <div class="intro-bg">
             <span class="bg-text">Love Story</span>
         </div>
-        
+
         <div class="couple-cards">
             <div class="c-card bride" data-aos="fade-right">
                 <div class="c-photo">
@@ -87,7 +91,7 @@
                     <p>2000 • Đam mê nghệ thuật, du lịch. Cô gái xinh gái, dễ thương và hài hước.</p>
                 </div>
             </div>
-            
+
             <div class="c-card groom" data-aos="fade-left" data-aos-delay="200">
                 <div class="c-photo">
                     <img src="assets/img/gallery/18.jpg" alt="Chú rể">
@@ -100,7 +104,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="heart-line" data-aos="zoom-in">
             <span class="h-line"></span>
             <span class="h-heart">♥</span>
@@ -189,26 +193,115 @@
         </div>
     </section>
 
-    <section class="mosaic-section">
-        <h2 class="mosaic-title" data-aos="fade-up">Memories</h2>
+    <!-- Memories - Creative Grid with Flipbook -->
+    <section class="memories-section">
+        <h2 class="memories-title" data-aos="fade-up">Our Moments</h2>
 
-        <div class="mosaic-grid">
-            <div class="mosaic-item m1" data-aos="zoom-in"><img src="assets/img/gallery/11.jpg"
-                    alt="Khoảnh khắc kề vai"></div>
-            <div class="mosaic-item m2" data-aos="zoom-in" data-aos-delay="50"><img src="assets/img/gallery/12.jpg"
-                    alt="Nụ cười rạng rỡ"></div>
-            <div class="mosaic-item m3" data-aos="zoom-in" data-aos-delay="100"><img src="assets/img/gallery/13.jpg"
-                    alt="Cái nắm tay thật chặt"></div>
-            <div class="mosaic-item m4" data-aos="zoom-in" data-aos-delay="150"><img src="assets/img/gallery/14.jpg"
-                    alt="Ánh mắt yêu thương"></div>
-            <div class="mosaic-item m5" data-aos="zoom-in" data-aos-delay="200"><img src="assets/img/gallery/15.jpg"
-                    alt="Chạy giữa cánh đồng"></div>
-            <div class="mosaic-item m6" data-aos="zoom-in" data-aos-delay="250"><img src="assets/img/gallery/16.jpg"
-                    alt="Ôm nhau dưới nắng"></div>
-            <div class="mosaic-item m7" data-aos="zoom-in" data-aos-delay="300"><img src="assets/img/gallery/17.jpg"
-                    alt="Nụ hôn dịu dàng"></div>
+        <div class="memories-grid">
+            <div class="memories-row" data-marquee="true" data-dur="20">
+                <div class="m-card large" data-aos="fade-up" onclick="openFlipbook()">
+                    <img src="assets/img/gallery/11.jpg" alt="Khoảnh khắc">
+                    <div class="m-overlay"><span>Xem</span></div>
+                </div>
+                <div class="m-card" data-aos="fade-up" data-aos-delay="50" onclick="openFlipbook()">
+                    <img src="assets/img/gallery/12.jpg" alt="Khoảnh khắc">
+                    <div class="m-overlay"><span>Xem</span></div>
+                </div>
+                <div class="m-card" data-aos="fade-up" data-aos-delay="100" onclick="openFlipbook()">
+                    <img src="assets/img/gallery/13.jpg" alt="Khoảnh khắc">
+                    <div class="m-overlay"><span>Xem</span></div>
+                </div>
+            </div>
+            <div class="memories-row reverse" data-marquee="true" data-dur="24">
+                <div class="m-card" data-aos="fade-up" onclick="openFlipbook()">
+                    <img src="assets/img/gallery/14.jpg" alt="Khoảnh khắc">
+                    <div class="m-overlay"><span>Xem</span></div>
+                </div>
+                <div class="m-card" data-aos="fade-up" data-aos-delay="50" onclick="openFlipbook()">
+                    <img src="assets/img/gallery/15.jpg" alt="Khoảnh khắc">
+                    <div class="m-overlay"><span>Xem</span></div>
+                </div>
+                <div class="m-card large" data-aos="fade-up" data-aos-delay="100" onclick="openFlipbook()">
+                    <img src="assets/img/gallery/16.jpg" alt="Khoảnh khắc">
+                    <div class="m-overlay"><span>Xem</span></div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- Flipbook Modal -->
+    <div class="flipbook-modal" id="flipbookModal">
+        <div class="flipbook-overlay" onclick="closeFlipBook()"></div>
+        <div class="flipbook-container">
+            <button class="flipbook-close" onclick="closeFlipBook()">&times;</button>
+            <div class="flipbook-wrapper">
+                <input type="checkbox" id="flipbook-cover">
+                <input type="checkbox" id="flipbook-page1">
+                <input type="checkbox" id="flipbook-page2">
+                <input type="checkbox" id="flipbook-page3">
+                <input type="checkbox" id="flipbook-page4">
+
+                <div id="flipbook">
+                    <div class="front_cover">
+                        <label for="flipbook-cover" id="flipbook-cover-label">
+                            <span class="flipbook-click-text">Bấm vào</span>
+                            <img src="assets/img/icons/curvearrow.gif" alt="" class="flipbook-gif">
+                            <span class="font-cover-date">20.01.2027</span>
+                        </label>
+                    </div>
+
+                    <div class="page" id="flip-page1">
+                        <div class="front_page">
+                            <label for="flipbook-page1"></label>
+                            <img class="front_content" id="flip-img-1" src="assets/img/gallery/11.jpg" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page1"></label>
+                            <img class="back_content" id="flip-img-2" src="assets/img/gallery/12.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="page" id="flip-page2">
+                        <div class="front_page">
+                            <label for="flipbook-page2"></label>
+                            <img class="front_content" id="flip-img-3" src="assets/img/gallery/13.jpg" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page2"></label>
+                            <img class="back_content" id="flip-img-4" src="assets/img/gallery/14.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="page" id="flip-page3">
+                        <div class="front_page">
+                            <label for="flipbook-page3"></label>
+                            <img class="front_content" id="flip-img-5" src="assets/img/gallery/15.jpg" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page3"></label>
+                            <img class="back_content" id="flip-img-6" src="assets/img/gallery/16.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="page" id="flip-page4">
+                        <div class="front_page">
+                            <label for="flipbook-page4"></label>
+                            <img class="front_content" id="flip-img-7" src="assets/img/gallery/17.jpg" alt="">
+                        </div>
+                        <div class="back_page">
+                            <label for="flipbook-page4"></label>
+                            <img class="back_content" id="flip-img-8" src="assets/img/gallery/11.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="back_cover">
+                        <span class="back-cover-text">Phúc Quỳnh & Lê Hương</span>
+                        <span class="back-cover-date">20.01.2027</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="countdown-section">
         <div class="countdown-vintage" data-aos="zoom-in">
@@ -238,26 +331,114 @@
         </div>
     </section>
 
-    <section class="rsvp-section" id="rsvp">
-        <div class="instant-photo" data-aos="fade-up">
-            <div class="instant-frame booth-rsvp">
-                <img src="assets/img/gallery/2.jpg" alt="Thẻ instax xác nhận tham dự">
-                <div class="instant-content">
-                    <h3>Xác Nhận</h3>
-                    <p>Save The Date</p>
-                    <form class="rsvp-form">
-                        <input type="text" placeholder="Tên của bạn">
-                        <input type="tel" placeholder="Số điện thoại">
-                        <select>
-                            <option>Sẽ đến</option>
-                            <option>Không đến được</option>
-                        </select>
-                        <button type="submit">Gửi</button>
-                    </form>
+    <section class="rsvp-section" id="rsvp-section">
+        <div class="rsvp-inner">
+            <h2 class="rsvp-title" data-aos="fade-up">Xác Nhận Tham Dự</h2>
+            <p class="rsvp-subtitle" data-aos="fade-up" data-aos-delay="100">Rất vui được đón tiếp bạn trong ngày
+                trọng đại</p>
+
+            <form class="rsvp-form" data-aos="fade-up" data-aos-delay="200">
+                <div class="rsvp-field">
+                    <label>Họ và tên</label>
+                    <input type="text" placeholder="Nhập họ tên của bạn" required>
                 </div>
-            </div>
+
+                <div class="rsvp-main-question">
+                    <label>Bạn sẽ tham dự chứ? *</label>
+                    <div class="main-radio-options">
+                        <label class="main-radio">
+                            <input type="radio" name="main_attendance" value="yes" checked>
+                            <span class="main-radio-box">
+                                <span class="radio-text">Tôi sẽ tham dự</span>
+                            </span>
+                        </label>
+                        <label class="main-radio">
+                            <input type="radio" name="main_attendance" value="no">
+                            <span class="main-radio-box">
+                                <span class="radio-text">Rất tiếc, tôi không thể tham dự</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="rsvp-event-select">
+                    <label>Bạn sẽ tham dự sự kiện nào? *</label>
+                    <div class="event-checkbox-options">
+                        <label class="event-checkbox">
+                            <input type="checkbox" name="event" value="le-an-hoi">
+                            <span class="event-checkbox-box">Lễ Ăn Hỏi</span>
+                        </label>
+                        <label class="event-checkbox">
+                            <input type="checkbox" name="event" value="tiec-nha-trai">
+                            <span class="event-checkbox-box">Tiệc Cưới Nhà Trai</span>
+                        </label>
+                        <label class="event-checkbox">
+                            <input type="checkbox" name="event" value="tiec-nha-gai">
+                            <span class="event-checkbox-box">Tiệc Cưới Nhà Gái</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="rsvp-guests">
+                    <label>Số người đi cùng (bao gồm bạn)</label>
+                    <div class="guest-selector">
+                        <button type="button" class="guest-btn minus" onclick="changeGuests(-1)">−</button>
+                        <span class="guest-count" id="guestCount">1</span>
+                        <button type="button" class="guest-btn plus" onclick="changeGuests(1)">+</button>
+                    </div>
+                    <div class="guest-options">
+                        <button type="button" class="guest-num" onclick="setGuests(1)">1</button>
+                        <button type="button" class="guest-num" onclick="setGuests(2)">2</button>
+                        <button type="button" class="guest-num" onclick="setGuests(3)">3</button>
+                        <button type="button" class="guest-num" onclick="setGuests(4)">4</button>
+                        <button type="button" class="guest-num" onclick="setGuests(5)">5</button>
+                        <button type="button" class="guest-num" onclick="setGuests(6)">6</button>
+                        <button type="button" class="guest-num" onclick="setGuests(7)">7</button>
+                        <button type="button" class="guest-num" onclick="setGuests(8)">8</button>
+                        <button type="button" class="guest-num" onclick="setGuests(9)">9</button>
+                        <button type="button" class="guest-num" onclick="setGuests(10)">10</button>
+                    </div>
+                </div>
+
+                <div class="rsvp-field">
+                    <label>Lời nhắn (không bắt buộc)</label>
+                    <textarea placeholder="Viết lời chúc cho cô dâu chú rể..."></textarea>
+                </div>
+
+                <button type="submit" class="rsvp-submit">Gửi Xác Nhận</button>
+            </form>
         </div>
     </section>
+
+    <!-- Gift / Lixi Section -->
+    <div class="gift-section">
+        <p class="gift-text">Gửi quà mừng cưới đến cô dâu, chú rể ❤️</p>
+        <button class="lixi-btn" onclick="openQrModal()">
+            <img src="assets/img/icons/lixi.png" alt="Lì xì" class="lixi-icon">
+        </button>
+    </div>
+
+    <!-- QR Modal -->
+    <div class="qr-modal" id="qrModal">
+        <div class="qr-modal-overlay" onclick="closeQrModal()"></div>
+        <div class="qr-modal-content">
+            <button class="qr-modal-close" onclick="closeQrModal()">&times;</button>
+            <div class="qr-frame" onclick="openFullQrModal()">
+                <img src="assets/img/qr.png" alt="QR Code" class="qr-image">
+                <div class="qr-view-hint">Click để phóng to</div>
+            </div>
+            <p class="qr-text">Quét QR để gửi quà mừng 💕</p>
+        </div>
+    </div>
+
+    <!-- Full QR Modal -->
+    <div class="full-qr-modal" id="fullQrModal">
+        <div class="full-qr-overlay" onclick="closeFullQrModal()"></div>
+        <div class="full-qr-content">
+            <button class="full-qr-close" onclick="closeFullQrModal()">&times;</button>
+            <img src="assets/img/qr.png" alt="QR Code" class="full-qr-image">
+        </div>
+    </div>
 
     <section class="wish-section" id="wish">
         <div class="guest-book" data-aos="fade-up">
@@ -323,8 +504,8 @@
 
     <!-- Music Button -->
     <div class="music-btn">
-        <button class="music-toggle" id="musicToggle">
-            <i class="fas fa-music"></i>
+        <button class="music-toggle playing" id="musicToggle">
+            <img src="assets/img/icons/playing-icon.png" alt="Music">
         </button>
         <audio id="bgMusic" loop>
             <source src="assets/media/song.mp3" type="audio/mp3">

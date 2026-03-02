@@ -19,6 +19,13 @@ const musicToggle = document.getElementById('musicToggle');
 const bgMusic = document.getElementById('bgMusic');
 
 if (musicToggle && bgMusic) {
+  // Auto play music on load
+  bgMusic.play().then(() => {
+    musicToggle.classList.add('playing');
+  }).catch(() => {
+    // Autoplay blocked, wait for user interaction
+  });
+
   musicToggle.addEventListener('click', () => {
     if (bgMusic.paused) {
       bgMusic.play();
@@ -234,7 +241,125 @@ if (minimalForm) {
   });
 }
 
+// Flipbook Functions
+function openFlipbook(startIndex) {
+  const modal = document.getElementById('flipbookModal');
+  if (modal) {
+    modal.classList.add('active');
+    // Reset flipbook to cover
+    document.getElementById('flipbook-cover').checked = false;
+    document.getElementById('flipbook-page1').checked = false;
+    document.getElementById('flipbook-page2').checked = false;
+    document.getElementById('flipbook-page3').checked = false;
+    document.getElementById('flipbook-page4').checked = false;
+  }
+}
+
+function closeFlipBook() {
+  const modal = document.getElementById('flipbookModal');
+  if (modal) {
+    modal.classList.remove('active');
+  }
+}
+
+// Make functions globally available
+window.openFlipbook = openFlipbook;
+window.closeFlipBook = closeFlipBook;
+
 // Optional: strengthen hover transitions on frames
 document.querySelectorAll('.film-strip .frame img').forEach(img => {
   img.style.willChange = 'transform, filter';
+});
+
+// Memories marquee
+document.querySelectorAll('.memories-row').forEach(row => {
+  if (row.dataset.marquee === 'true') {
+    const cards = Array.from(row.children);
+    const track = document.createElement('div');
+    track.className = 'marquee-track';
+    cards.forEach(c => track.appendChild(c));
+    // Duplicate twice for extra-smooth infinite loop
+    cards.forEach(c => track.appendChild(c.cloneNode(true)));
+    cards.forEach(c => track.appendChild(c.cloneNode(true)));
+    row.appendChild(track);
+    row.classList.add('marquee');
+    const base = parseInt(row.getAttribute('data-dur') || '28', 10);
+    const faster = Math.max(8, Math.round(base * 0.6)); // speed up ~40%
+    track.style.animationDuration = `${faster}s`;
+  }
+});
+
+// RSVP Guest Counter
+let currentGuests = 1;
+
+function changeGuests(delta) {
+  currentGuests += delta;
+  if (currentGuests < 1) currentGuests = 1;
+  if (currentGuests > 100) currentGuests = 100;
+  updateGuestDisplay();
+}
+
+function setGuests(num) {
+  currentGuests = num;
+  updateGuestDisplay();
+}
+
+function updateGuestDisplay() {
+  const guestCountEl = document.getElementById('guestCount');
+  if (guestCountEl) {
+    guestCountEl.textContent = currentGuests;
+  }
+  
+  document.querySelectorAll('.guest-num').forEach(btn => {
+    btn.classList.remove('active');
+    if (parseInt(btn.textContent) === currentGuests) {
+      btn.classList.add('active');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  updateGuestDisplay();
+});
+
+// QR Modal 
+function openQrModal() {
+  const modal = document.getElementById('qrModal');
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeQrModal() {
+  const modal = document.getElementById('qrModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Full QR Modal
+function openFullQrModal() {
+  closeQrModal();
+  const modal = document.getElementById('fullQrModal');
+  if (modal) {
+    modal.classList.add('active');
+  }
+}
+
+function closeFullQrModal() {
+  const modal = document.getElementById('fullQrModal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// ESC 
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeQrModal();
+    closeFullQrModal();
+  }
 });
