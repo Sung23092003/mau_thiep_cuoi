@@ -133,7 +133,6 @@ if (rsvpForm4) {
         
         rsvpForm4.reset();
         document.getElementById('guestCount4').textContent = '1';
-        alert('Cảm ơn bạn đã xác nhận!');
     });
 }
 
