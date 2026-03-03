@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== Form Submit ==========
     window.handleSubmit = function(e) {
         e.preventDefault();
-        alert('Cảm ơn bạn đã xác nhận tham dự! 💕');
         e.target.reset();
     };
     
