@@ -8,33 +8,33 @@
     --blue-light: #E6EFF8;
     --blue-soft: #D4E4F4;
     --blue-pastel: #C5D9E8;
-    
+
     --cream: #FAF6F1;
     --cream-light: #F5F0E8;
     --beige: #E8DFD3;
     --beige-dark: #D9CEC0;
-    
+
     /* Text colors - dark for light background */
     --text-dark: #2D3E50;
     --text-primary: #2D3E50;
     --text-secondary: #5A6B7C;
     --text-muted: #8A9AAC;
-    
+
     /* White */
     --white: #FFFFFF;
-    
+
     /* Accent - soft rose/pink works well with light blue */
     --accent: #D4A5A5;
     --accent-light: #E8C4C4;
     --accent-dark: #B88989;
     --accent-soft: #F0DEDE;
-    
+
     /* Card backgrounds - light theme */
     --card-bg: rgba(255, 255, 255, 0.85);
     --card-bg-light: rgba(255, 255, 255, 0.95);
     --border-light: rgba(200, 210, 220, 0.4);
     --border-subtle: rgba(180, 190, 200, 0.3);
-    
+
     /* Shadows */
     --shadow-soft: 0 8px 30px rgba(45, 62, 80, 0.08);
     --shadow-hover: 0 15px 40px rgba(45, 62, 80, 0.12);
@@ -62,13 +62,12 @@ html {
 
 body {
     font-family: var(--font-serif);
-    background: 
-        linear-gradient(180deg, var(--blue-light) 0%, var(--white) 50%, var(--blue-soft) 100%);
+    background: url('../img/background.jpg') no-repeat center fixed;
+    background-size: cover;
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
-}
-
+}   
 /* ---------- Container ---------- */
 .container {
     max-width: 1200px;
@@ -138,7 +137,7 @@ body {
     justify-content: center;
     gap: 16px;
     font-family: var(--font-display);
-    font-size: 0.72rem;
+    font-size: 1rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -180,7 +179,7 @@ body {
 .save-date {
     display: block;
     font-family: var(--font-display);
-    font-size: 0.6rem;
+    font-size: 0.9rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
     color: var(--text-muted);
@@ -214,7 +213,7 @@ body {
 }
 
 .date-numbers .year {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-muted);
     margin-left: 8px;
 }
@@ -257,14 +256,14 @@ body {
 
 .invite-head .family {
     flex: 1;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
 }
 
 .family-label {
     display: block;
     font-family: var(--font-display);
-    font-size: 0.7rem;
+    font-size: 1rem;
     letter-spacing: .12em;
     text-transform: uppercase;
     color: var(--accent);
@@ -274,7 +273,7 @@ body {
 .family-place {
     display: block;
     margin-top: 4px;
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: var(--text-muted);
     font-style: italic;
 }
@@ -294,14 +293,14 @@ body {
 
 .invite-sub {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
 }
 
 .invite-guest {
     text-align: center;
     font-family: var(--font-display);
-    font-size: 0.85rem;
+    font-size: 1rem;
     letter-spacing: .15em;
     text-transform: uppercase;
     color: var(--accent);
@@ -318,7 +317,7 @@ body {
     align-items: center;
     gap: 8px;
     font-family: var(--font-display);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: .1em;
     color: var(--text-secondary);
     margin-bottom: 10px;
@@ -339,7 +338,7 @@ body {
 .date-display .month,
 .date-display .year {
     font-family: var(--font-display);
-    font-size: 0.7rem;
+    font-size: 1rem;
     letter-spacing: .12em;
     color: var(--text-muted);
 }
@@ -355,7 +354,7 @@ body {
 }
 
 .lunar-note {
-    font-size: 0.7rem;
+    font-size: 1rem;
     color: var(--text-muted);
     font-style: italic;
 }
@@ -370,7 +369,7 @@ body {
     padding: 8px 14px;
     border: 1px dashed var(--beige-dark);
     border-radius: 999px;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: .12em;
     color: var(--text-primary);
     text-transform: uppercase;
@@ -378,7 +377,7 @@ body {
 
 .location-addr {
     margin-top: 6px;
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text-secondary);
 }
 
@@ -421,7 +420,7 @@ body {
 .icon-wrapper {
     position: relative;
     z-index: 2;
-    background: var(--cream);
+    /* background: var(--cream); */
     padding: 5px;
 }
 
@@ -893,7 +892,7 @@ body {
 .calendar-month {
     display: block;
     font-family: var(--font-display);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: 0.15em;
     color: var(--accent);
     margin-bottom: 20px;
@@ -908,7 +907,7 @@ body {
 
 .calendar-grid span {
     font-family: var(--font-serif);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
     padding: 6px 0;
 }
@@ -990,7 +989,7 @@ body {
 .event-date-block .month {
     display: block;
     font-family: var(--font-display);
-    font-size: 0.65rem;
+    font-size: 0.95rem;
     letter-spacing: 0.1em;
     color: var(--text-muted);
     margin-top: 4px;
@@ -1004,7 +1003,7 @@ body {
 .event-details .event-label {
     display: block;
     font-family: var(--font-display);
-    font-size: 0.6rem;
+    font-size: 0.9rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
@@ -1020,7 +1019,7 @@ body {
 }
 
 .event-details p {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
 }
 
@@ -1154,7 +1153,7 @@ body {
 
 .rsvp-intro {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     font-style: italic;
     margin-bottom: 30px;
@@ -1175,7 +1174,7 @@ form {
     width: 100%;
     padding: 14px 0 10px;
     font-family: var(--font-serif);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--text-primary);
     background: transparent;
     border: none;
@@ -1199,7 +1198,7 @@ form {
     left: 0;
     top: 14px;
     font-family: var(--font-serif);
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text-muted);
     pointer-events: none;
     transition: all 0.3s var(--ease);
@@ -1210,7 +1209,7 @@ form {
 .form-field textarea:focus~label,
 .form-field textarea:not(:placeholder-shown)~label {
     top: -8px;
-    font-size: 0.65rem;
+    font-size: 0.95rem;
     color: var(--accent);
 }
 
@@ -1220,7 +1219,7 @@ form {
     border: none;
     color: var(--white);
     font-family: var(--font-display);
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     cursor: pointer;
@@ -1275,7 +1274,7 @@ form {
 
 .gift-qr span {
     font-family: var(--font-display);
-    font-size: 0.6rem;
+    font-size: 0.9rem;
     letter-spacing: 0.1em;
     color: var(--text-muted);
     margin-top: 5px;
@@ -1290,7 +1289,7 @@ form {
 }
 
 .gift-card>p {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     font-style: italic;
 }
@@ -1330,7 +1329,7 @@ form {
 }
 
 .final-date .year {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text-muted);
 }
 
@@ -1433,7 +1432,7 @@ form {
 }
 
 .modal-body p {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     color: var(--text-muted);
     font-style: italic;
 }
