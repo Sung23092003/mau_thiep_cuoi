@@ -5,12 +5,25 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ========== Scroll Animation ==========
+    // ========== Scroll Animation with Stagger ==========
     const scrollElements = document.querySelectorAll('[data-scroll]');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                const parent = entry.target.closest('.section');
+                
+                // Add visible class to section for polaroid animations
+                if (parent) {
+                    parent.classList.add('visible');
+                    
+                    // Add staggered delay for children within same section
+                    const siblings = parent.querySelectorAll('[data-scroll]');
+                    const index = Array.from(siblings).indexOf(entry.target);
+                    const delay = index * 0.1;
+                    entry.target.style.transitionDelay = `${delay}s`;
+                }
+                
                 entry.target.classList.add('visible');
             }
         });

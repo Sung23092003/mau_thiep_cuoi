@@ -90,6 +90,108 @@ body {
     transform: translateY(0);
 }
 
+/* Opening Section - Fade Up + Scale */
+.section-opening [data-scroll] {
+    transform: translateY(40px) scale(0.98);
+}
+
+.section-opening [data-scroll].visible {
+    transform: translateY(0) scale(1);
+}
+
+/* Invite Section - Slide From Sides */
+.section-invite [data-scroll] {
+    transform: translateX(-30px);
+}
+
+.section-invite [data-scroll].visible {
+    transform: translateX(0);
+}
+
+/* Calendar Section - Scale + Fade */
+.section-calendar [data-scroll] {
+    transform: scale(0.95) translateY(20px);
+}
+
+.section-calendar [data-scroll].visible {
+    transform: scale(1) translateY(0);
+}
+
+/* Events Section - Staggered Reveal */
+.section-events [data-scroll] {
+    transform: translateY(30px);
+}
+
+.section-events [data-scroll].visible {
+    transform: translateY(0);
+}
+
+/* Polaroid Section - Overlapping Reveal */
+.section-polaroid [data-scroll] {
+    transform: translateY(40px) rotate(-2deg);
+}
+
+.section-polaroid [data-scroll].visible {
+    transform: translateY(0) rotate(0);
+}
+
+/* Gallery Section - Fade */
+.section-gallery [data-scroll] {
+    transform: translateY(30px);
+}
+
+.section-gallery [data-scroll].visible {
+    transform: translateY(0);
+}
+
+/* RSVP Section - Slide Up */
+.section-rsvp [data-scroll] {
+    transform: translateY(40px);
+}
+
+.section-rsvp [data-scroll].visible {
+    transform: translateY(0);
+}
+
+/* Gift Section - Fade In */
+.section-gift [data-scroll] {
+    transform: translateY(30px);
+}
+
+.section-gift [data-scroll].visible {
+    transform: translateY(0);
+}
+
+/* Final Section - Fade */
+.section-final [data-scroll] {
+    transform: translateY(30px);
+}
+
+.section-final [data-scroll].visible {
+    transform: translateY(0);
+}
+
+/* Decorative Lines - Fade */
+.deco-line [data-scroll],
+.icon-connector [data-scroll] {
+    transform: scaleX(0);
+    transform-origin: center;
+}
+
+.deco-line [data-scroll].visible,
+.icon-connector [data-scroll].visible {
+    transform: scaleX(1);
+}
+
+/* Icon Connectors - Fade In */
+.icon-connector [data-scroll] {
+    transform: translateY(20px) scale(0.9);
+}
+
+.icon-connector [data-scroll].visible {
+    transform: translateY(0) scale(1);
+}
+
 /* ---------- Section Base ---------- */
 .section {
     padding: 80px 0;
@@ -158,6 +260,20 @@ body {
     overflow: hidden;
     height: 360px;
     border-radius: 8px;
+    position: relative;
+}
+
+.opening-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(181, 30, 52, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.section-opening:hover .opening-hero::after {
+    opacity: 1;
 }
 
 .opening-hero img {
@@ -235,6 +351,7 @@ body {
 .section-invite {
     padding-top: 10px;
     max-width: 560px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -420,8 +537,8 @@ body {
 .icon-wrapper {
     position: relative;
     z-index: 2;
-    /* background: var(--cream); */
     padding: 5px;
+    transition: transform 0.5s var(--ease);
 }
 
 .icon-wrapper img {
@@ -429,6 +546,27 @@ body {
     height: 45px;
     object-fit: contain;
     display: block;
+    transition: transform 0.5s var(--ease);
+}
+
+/* Icon hover effect */
+.icon-connector:hover .icon-wrapper {
+    transform: scale(1.15);
+}
+
+.icon-connector:hover .icon-wrapper img {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Unique animation per icon when visible */
+.icon-connector [data-scroll].visible .icon-wrapper {
+    animation: iconBounce 0.6s var(--ease);
+}
+
+@keyframes iconBounce {
+    0% { transform: scale(0) rotate(-20deg); }
+    50% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0); }
 }
 
 /* Full connector line */
@@ -591,6 +729,7 @@ body {
     padding: 20px 0;
     text-align: center;
     position: relative;
+    overflow: hidden;
 }
 
 .deco-line img {
@@ -598,6 +737,12 @@ body {
     width: auto;
     object-fit: contain;
     opacity: 0.4;
+    transition: transform 0.5s var(--ease), opacity 0.5s;
+}
+
+.deco-line:hover img {
+    opacity: 0.8;
+    transform: scale(1.1);
 }
 
 .deco-line-left {
@@ -643,10 +788,27 @@ body {
     padding: 10px 10px 32px;
     box-shadow: 0 12px 28px rgba(0, 0, 0, .12);
     transform: rotate(var(--rot, 0deg));
-    transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), opacity 0.6s ease-out, filter 0.6s ease-out;
     cursor: grab;
     z-index: 1;
+    opacity: 0;
+    filter: blur(3px);
+    transform-origin: center bottom;
 }
+
+/* Show polaroids when polaroid-wrap becomes visible */
+.polaroid-wrap.visible .polaroid {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Staggered reveal for polaroids */
+.polaroid-wrap.visible .p1 { transition-delay: 0.1s; }
+.polaroid-wrap.visible .p2 { transition-delay: 0.2s; }
+.polaroid-wrap.visible .p3 { transition-delay: 0.3s; }
+.polaroid-wrap.visible .p4 { transition-delay: 0.4s; }
+.polaroid-wrap.visible .p5 { transition-delay: 0.5s; }
+.polaroid-wrap.visible .p6 { transition-delay: 0.6s; }
 
 .polaroid:hover {
     transform: rotate(var(--rot, 0deg)) scale(1.08);
@@ -1110,6 +1272,14 @@ body {
 .gallery-img {
     border-radius: 3px;
     overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.6s var(--ease), opacity 0.6s var(--ease);
+    opacity: 0;
+}
+
+.section-gallery [data-scroll].visible .gallery-img {
+    transform: scale(1);
+    opacity: 1;
 }
 
 .gallery-img.tall {
@@ -1300,6 +1470,24 @@ form {
 .section-final {
     padding: 100px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-final::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    transition: width 1s var(--ease);
+}
+
+.section-final [data-scroll].visible::before {
+    width: 100%;
 }
 
 .final-content {
