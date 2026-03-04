@@ -308,28 +308,32 @@
 
         <!-- Section 5: Gallery -->
         <section class="section section-gallery" id="gallery">
+            <div class="gallery-header" data-scroll>
+                <h2>Khoảnh Khắc</h2>
+                <p>Những khoảnh khắc đáng nhớ của chúng tôi</p>
+            </div>
             <div class="gallery-masonry" data-scroll>
                 <div class="gallery-col">
-                    <div class="gallery-img">
+                    <div class="gallery-img" onclick="openGallery(0)">
                         <img src="assets/img/gallery/11.jpg" alt="">
                     </div>
-                    <div class="gallery-img tall">
+                    <div class="gallery-img tall" onclick="openGallery(1)">
                         <img src="assets/img/gallery/12.jpg" alt="">
                     </div>
                 </div>
                 <div class="gallery-col">
-                    <div class="gallery-img">
+                    <div class="gallery-img" onclick="openGallery(2)">
                         <img src="assets/img/gallery/13.jpg" alt="">
                     </div>
-                    <div class="gallery-img">
+                    <div class="gallery-img" onclick="openGallery(3)">
                         <img src="assets/img/gallery/14.jpg" alt="">
                     </div>
                 </div>
                 <div class="gallery-col">
-                    <div class="gallery-img tall">
+                    <div class="gallery-img tall" onclick="openGallery(4)">
                         <img src="assets/img/gallery/15.jpg" alt="">
                     </div>
-                    <div class="gallery-img">
+                    <div class="gallery-img" onclick="openGallery(5)">
                         <img src="assets/img/gallery/16.jpg" alt="">
                     </div>
                 </div>
@@ -483,7 +487,7 @@
         <!-- Section 7: Gift -->
         <section class="section section-gift" id="gift">
             <div class="gift-card" data-scroll>
-                <div class="gift-qr" onclick="openGiftModal()">
+                <div class="gift-qr" onclick="openQrModal()">
                     <img src="assets/img/qr.png" alt="QR">
                     <span>Tap to view</span>
                 </div>
@@ -514,19 +518,27 @@
     </main>
 
 
-    <!-- Modal -->
-    <div class="modal" id="giftModal">
-        <div class="modal-backdrop" onclick="closeGiftModal()"></div>
-        <div class="modal-body">
-            <button class="modal-close" onclick="closeGiftModal()">×</button>
-            <h3>Quét QR Gửi Quà</h3>
-            <div class="modal-qr">
-                <img src="assets/img/qr.png" alt="QR Code">
+    <!-- QR Modal -->
+    <div class="qr-modal" id="qrModal">
+        <div class="qr-modal-overlay" onclick="closeQrModal()"></div>
+        <div class="qr-modal-content">
+            <button class="qr-modal-close" onclick="closeQrModal()">&times;</button>
+            <div class="qr-frame" onclick="openFullQrModal()">
+                <img src="assets/img/qr.png" alt="QR Code" class="qr-image">
+                <div class="qr-view-hint">Click để phóng to</div>
             </div>
-            <p>Scan để gửi quà mừng cưới 💕</p>
+            <p class="qr-text">Quét QR để gửi quà mừng 💕</p>
         </div>
     </div>
 
+    <!-- Full QR Modal -->
+    <div class="full-qr-modal" id="fullQrModal">
+        <div class="full-qr-overlay" onclick="closeFullQrModal()"></div>
+        <div class="full-qr-content">
+            <button class="full-qr-close" onclick="closeFullQrModal()">&times;</button>
+            <img src="assets/img/qr.png" alt="QR Code" class="full-qr-image">
+        </div>
+    </div>
 
     <!-- Music -->
     <div class="music-control">
@@ -543,6 +555,19 @@
     <button class="scroll-top" id="scrollTopBtn">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Gallery Lightbox -->
+    <div class="gallery-lightbox" id="galleryLightbox">
+        <button class="lightbox-close" onclick="closeGallery()">&times;</button>
+        <button class="lightbox-nav lightbox-prev" onclick="prevImage()">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" onclick="nextImage()">&#10095;</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+        </div>
+        <div class="lightbox-counter">
+            <span id="currentIndex">1</span> / <span id="totalImages">6</span>
+        </div>
+    </div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="assets/script/main.js"></script>

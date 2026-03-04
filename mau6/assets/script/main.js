@@ -65,21 +65,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     
-    // ========== Gift Modal ==========
-    window.openGiftModal = function() {
-        document.getElementById('giftModal')?.classList.add('active');
+    // ========== QR Modal ==========
+    window.openQrModal = function() {
+        document.getElementById('qrModal')?.classList.add('active');
     };
     
-    window.closeGiftModal = function() {
-        document.getElementById('giftModal')?.classList.remove('active');
+    window.closeQrModal = function() {
+        document.getElementById('qrModal')?.classList.remove('active');
+    };
+    
+    window.openFullQrModal = function() {
+        document.getElementById('fullQrModal')?.classList.add('active');
+    };
+    
+    window.closeFullQrModal = function() {
+        document.getElementById('fullQrModal')?.classList.remove('active');
     };
     
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeGiftModal();
+        if (e.key === 'Escape') {
+            closeQrModal();
+            closeFullQrModal();
+        }
     });
     
-    document.getElementById('giftModal')?.addEventListener('click', function(e) {
-        if (e.target === this) closeGiftModal();
+    document.getElementById('qrModal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeQrModal();
+    });
+    
+    document.getElementById('fullQrModal')?.addEventListener('click', function(e) {
+        if (e.target === this) closeFullQrModal();
     });
     
     
@@ -259,5 +274,75 @@ document.addEventListener('DOMContentLoaded', function() {
             document.addEventListener('pointerup', onUp, { once: true });
         }
     })();
+    
+    // ========== Gallery Lightbox ==========
+    const galleryImages = [
+        'assets/img/gallery/11.jpg',
+        'assets/img/gallery/12.jpg',
+        'assets/img/gallery/13.jpg',
+        'assets/img/gallery/14.jpg',
+        'assets/img/gallery/15.jpg',
+        'assets/img/gallery/16.jpg'
+    ];
+    
+    let currentImageIndex = 0;
+    
+    window.openGallery = function(index) {
+        currentImageIndex = index;
+        const lightbox = document.getElementById('galleryLightbox');
+        const img = document.getElementById('lightboxImg');
+        const totalSpan = document.getElementById('totalImages');
+        const currentSpan = document.getElementById('currentIndex');
+        
+        img.src = galleryImages[currentImageIndex];
+        totalSpan.textContent = galleryImages.length;
+        currentSpan.textContent = currentImageIndex + 1;
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+    
+    window.closeGallery = function() {
+        const lightbox = document.getElementById('galleryLightbox');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+    
+    window.nextImage = function() {
+        currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+        updateLightboxImage();
+    };
+    
+    window.prevImage = function() {
+        currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+        updateLightboxImage();
+    };
+    
+    function updateLightboxImage() {
+        const img = document.getElementById('lightboxImg');
+        const currentSpan = document.getElementById('currentIndex');
+        
+        img.style.animation = 'none';
+        img.offsetHeight;
+        img.style.animation = 'lightboxZoom 0.4s ease';
+        
+        img.src = galleryImages[currentImageIndex];
+        currentSpan.textContent = currentImageIndex + 1;
+    }
+    
+    // Close lightbox on escape key
+    document.addEventListener('keydown', function(e) {
+        const lightbox = document.getElementById('galleryLightbox');
+        if (lightbox.classList.contains('active')) {
+            if (e.key === 'Escape') closeGallery();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        }
+    });
+    
+    // Close lightbox on background click
+    document.getElementById('galleryLightbox')?.addEventListener('click', function(e) {
+        if (e.target === this) closeGallery();
+    });
     
 });
