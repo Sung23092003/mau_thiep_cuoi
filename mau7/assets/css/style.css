@@ -4,6 +4,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+/* Color Variables */
+:root {
+    --wine: #722737;
+    --wine-dark: #5a1f2c;
+    --wine-light: #8b3a4a;
+    --gold: #b8956e;
+    --gold-light: #d4a574;
+    --cream: #faf5f5;
+    --cream-dark: #f0e6e4;
+    --text-dark: #333333;
+    --text-light: #666666;
+    --text-muted: #999999;
+    --white: #ffffff;
+    --pink-light: #fceef0;
+}
+
 /* ================================================
    RESET & BASE
    ================================================ */
@@ -20,8 +36,8 @@ html {
 
 body {
     font-family: 'Cormorant Garamond', serif;
-    background: #f8f4ef;
-    color: #3d3d3d;
+    background: #faf5f5;
+    color: #333;
     line-height: 1.8;
     overflow-x: hidden;
 }
@@ -690,7 +706,7 @@ body::before {
 
 .event-section {
     padding: 100px 20px;
-    background: linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%);
+    background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
     position: relative;
     overflow: hidden;
 }
@@ -1099,7 +1115,7 @@ body::before {
 .handwritten-label {
     font-family: 'Dancing Script', cursive;
     font-size: 22px;
-    color: #8b9a7d; /* Sage green */
+    color: var(--wine); /* Wine color */
     display: block;
     margin-bottom: 10px;
 }
@@ -1356,7 +1372,7 @@ body::before {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #8b9a7d;
+    color: var(--wine);
     margin-bottom: 12px;
 }
 
@@ -1431,7 +1447,7 @@ body::before {
 .parent-info h4 {
     font-family: 'Dancing Script', cursive;
     font-size: 20px;
-    color: #8b9a7d;
+    color: var(--wine);
     margin-bottom: 10px;
 }
 
@@ -1726,57 +1742,61 @@ body::before {
 }
 
 /* ================================================
-   SECTION 7: WISHES - Scrapbook Style
+   SECTION 7: WISHES - Clean & Elegant
    ================================================ */
 
 .wishes-section {
-    padding: 100px 20px;
-    background: #f5f1ea;
-    position: relative;
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
+    text-align: center;
 }
 
 .wishes-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
+    display: none;
 }
 
 .wishes-card {
-    background: white;
+    background: #fff;
     max-width: 600px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 50px 40px;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border: 1px solid #e8e4dc;
+    box-shadow: 0 10px 40px rgba(114, 47, 55, 0.06);
+    border-radius: 4px;
 }
 
 .wishes-intro {
     text-align: center;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #666;
     font-style: italic;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    line-height: 1.8;
 }
 
 .wishes-list {
-    margin-bottom: 30px;
-    max-height: 300px;
+    margin-bottom: 40px;
+    max-height: 350px;
     overflow-y: auto;
+    padding-right: 10px;
+}
+
+.wishes-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.wishes-list::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 2px;
 }
 
 .wish-item {
     display: flex;
     gap: 15px;
-    padding: 15px 0;
-    border-bottom: 1px dashed #eee;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    text-align: left;
 }
 
 .wish-item:last-child {
@@ -1784,16 +1804,16 @@ body::before {
 }
 
 .wish-avatar {
-    width: 40px;
-    height: 40px;
-    background: #f5f0ea;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #d4a5a5;
+    color: white;
     flex-shrink: 0;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .wish-content {
@@ -1803,39 +1823,46 @@ body::before {
 .wish-name {
     display: block;
     font-weight: 600;
-    color: #4a4a4a;
-    margin-bottom: 5px;
-    font-size: 14px;
+    color: var(--wine);
+    margin-bottom: 6px;
+    font-size: 15px;
 }
 
 .wish-text {
-    font-size: 14px;
+    font-size: 15px;
     color: #666;
     font-style: italic;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .wish-form {
-    border-top: 1px dashed #e8e4dc;
-    padding-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    text-align: left;
+}
+
+.wish-form .form-group {
+    margin-bottom: 20px;
 }
 
 .wish-form .form-group input,
 .wish-form .form-group textarea {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #e0e0e0;
-    background: #faf8f5;
+    padding: 14px 16px;
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
-    color: #4a4a4a;
+    color: #333;
     transition: border-color 0.3s ease;
+    border-radius: 2px;
 }
 
 .wish-form .form-group input:focus,
 .wish-form .form-group textarea:focus {
     outline: none;
-    border-color: #d4a5a5;
+    border-color: var(--wine);
+    background: #fff;
 }
 
 .wish-form .form-group textarea {
@@ -1845,162 +1872,174 @@ body::before {
 
 .submit-btn-scrapbook {
     width: 100%;
-    padding: 14px;
-    background: #4a4a4a;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
     color: white;
     border: none;
     font-family: 'Cormorant Garamond', serif;
     font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     transition: all 0.3s ease;
-    margin-top: 15px;
+    margin-top: 10px;
+    border-radius: 2px;
 }
 
 .submit-btn-scrapbook:hover {
-    background: #d4a5a5;
+    background: linear-gradient(135deg, var(--wine-light) 0%, var(--wine) 100%);
     transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(114, 47, 55, 0.2);
 }
 
 .submit-btn-scrapbook.primary {
-    background: #8b9a7d;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
 }
 
 .submit-btn-scrapbook.primary:hover {
-    background: #7a8970;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
 }
 
 /* ================================================
-   SECTION 8: RSVP - Scrapbook Style
+   SECTION 8: RSVP - Clean & Elegant
    ================================================ */
 
 .rsvp-section {
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%);
-    position: relative;
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
+    text-align: center;
 }
 
 .rsvp-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    display: none;
 }
 
 .rsvp-section .section-header-scrapbook {
-    color: #f8f4ef;
+    color: var(--wine);
 }
 
 .rsvp-section .title-line {
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
 }
 
 .rsvp-section .handwritten-label {
-    color: #d4a5a5;
+    color: var(--wine);
 }
 
 .rsvp-card {
-    background: white;
-    max-width: 500px;
+    background: #fff;
+    max-width: 520px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 50px 40px;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 40px rgba(114, 47, 55, 0.08);
+    border-radius: 4px;
 }
 
 .rsvp-intro {
     text-align: center;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #666;
     font-style: italic;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+    line-height: 1.8;
+}
+
+.rsvp-form {
+    text-align: left;
+}
+
+.rsvp-form .form-group {
+    margin-bottom: 24px;
+}
+
+.rsvp-form .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .rsvp-form .form-group input,
 .rsvp-form .form-group select {
     width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #e0e0e0;
-    background: #faf8f5;
+    padding: 14px 16px;
+    border: 1px solid #e5e5e5;
+    background: #fafafa;
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
-    color: #4a4a4a;
+    color: #333;
     transition: border-color 0.3s ease;
+    border-radius: 2px;
 }
 
 .rsvp-form .form-group input:focus,
 .rsvp-form .form-group select:focus {
     outline: none;
-    border-color: #8b9a7d;
+    border-color: var(--wine);
+    background: #fff;
 }
 
 /* ================================================
-   SECTION 9: GIFT / MỪNG CƯỚI - Scrapbook Style
+   SECTION 9: GIFT / MỪNG CƯỚI - Clean & Elegant
    ================================================ */
 
 .gift-section {
-    padding: 100px 20px 120px;
-    background: #f5f1ea;
-    position: relative;
+    padding: 120px 20px;
+    background: linear-gradient(180deg, #fff 0%, #faf5f5 100%);
+    text-align: center;
 }
 
 .gift-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    opacity: 0.03;
-    pointer-events: none;
+    display: none;
 }
 
 .gift-card {
-    background: white;
+    background: #fff;
     max-width: 450px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 50px 40px;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border: 1px solid #e8e4dc;
+    box-shadow: 0 10px 40px rgba(114, 47, 55, 0.08);
+    border-radius: 4px;
     text-align: center;
 }
 
 .gift-intro {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-size: 18px;
     color: #666;
     font-style: italic;
-    line-height: 1.7;
-    margin-bottom: 30px;
+    line-height: 1.8;
+    margin-bottom: 35px;
 }
 
 .qr-display {
     display: inline-block;
-    padding: 15px;
+    padding: 20px;
     background: white;
-    border: 1px solid #e8e4dc;
-    margin-bottom: 20px;
+    border: 2px solid var(--gold-light);
+    margin-bottom: 25px;
 }
 
 .qr-image {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     display: block;
+    object-fit: contain;
 }
 
 .qr-caption {
-    font-size: 14px;
-    color: #888;
+    font-size: 15px;
+    color: var(--wine);
     font-style: italic;
+    font-weight: 500;
 }
 
 /* ================================================
@@ -2009,17 +2048,18 @@ body::before {
 
 .wishes-section {
     padding: 120px 20px;
-    background: linear-gradient(135deg, #4a4a4a 0%, #2d2d2d 100%);
-    position: relative;
+    background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
+    text-align: center;
 }
 
 .wishes-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: #fff;
     max-width: 600px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 50px 40px;
     position: relative;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 40px rgba(114, 47, 55, 0.06);
+    border-radius: 4px;
 }
 
 .wishes-intro {
