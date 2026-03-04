@@ -2644,4 +2644,12 @@ body.film-full-bw .hero-section {
   .vintage-numbers {
     flex-wrap: wrap;
   }
+
+}
+
+@media (max-width: 636px) {
+  .timeline-reel{
+    justify-content: start;
+  }
+  
 }
