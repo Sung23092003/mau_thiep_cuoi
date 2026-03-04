@@ -86,7 +86,111 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== Form Submit ==========
     window.handleSubmit = function(e) {
         e.preventDefault();
-        e.target.reset();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        
+        const data = {
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            attendance: form.querySelector('input[name="attendance"]:checked')?.value,
+            events: Array.from(form.querySelectorAll('input[name="event"]:checked')).map(el => el.value),
+            guests: document.getElementById('guestCount')?.textContent || '1',
+            message: formData.get('message')
+        };
+        
+        console.log('RSVP Data:', data);
+        form.reset();
+        document.getElementById('guestCount').textContent = '1';
+    };
+    
+    // ========== Guest Counter ==========
+    window.changeGuests = function(delta) {
+        const countEl = document.getElementById('guestCount');
+        if (!countEl) return;
+        
+        let count = parseInt(countEl.textContent) || 1;
+        count = Math.max(1, Math.min(100, count + delta));
+        countEl.textContent = String(count);
+    };
+    
+    // ========== Wish List - LocalStorage ==========
+    const WISH_STORAGE_KEY = 'wedding_wishes_mau6';
+    
+    function getWishes() {
+        const data = localStorage.getItem(WISH_STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+    }
+    
+    function saveWish(wish) {
+        const wishes = getWishes();
+        wishes.unshift(wish);
+        localStorage.setItem(WISH_STORAGE_KEY, JSON.stringify(wishes));
+    }
+    
+    function renderWishes() {
+        const container = document.getElementById('wishList');
+        if (!container) return;
+        
+        const wishes = getWishes();
+        
+        if (wishes.length === 0) {
+            container.innerHTML = '<p class="wish-empty">Chưa có lời chúc nào. Hãy là người đầu tiên!</p>';
+            return;
+        }
+        
+        let html = '<h3 class="wish-list-title">Lời Chúc (' + wishes.length + ')</h3>';
+        
+        wishes.forEach(wish => {
+            const date = new Date(wish.date).toLocaleDateString('vi-VN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            
+            html += `
+                <div class="wish-item">
+                    <div class="wish-item-name">${escapeHtml(wish.name)}</div>
+                    <div class="wish-item-message">"${escapeHtml(wish.message)}"</div>
+                    <div class="wish-item-date">${date}</div>
+                </div>
+            `;
+        });
+        
+        container.innerHTML = html;
+    }
+    
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Render wishes on page load
+    renderWishes();
+    
+    // ========== Wish Submit ==========
+    window.handleWishSubmit = function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        
+        const wish = {
+            name: formData.get('wishName'),
+            message: formData.get('wishMessage'),
+            date: new Date().toISOString()
+        };
+        
+        saveWish(wish);
+        renderWishes();
+        
+        form.reset();
+        
+        // Scroll to wish list
+        document.getElementById('wishList')?.scrollIntoView({ behavior: 'smooth' });
     };
     
     // ========== Draggable Polaroids (section-polaroid) ==========
