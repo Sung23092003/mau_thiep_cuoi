@@ -1,20 +1,295 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chọn mẫu thiệp cưới</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital@1&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--cream:#f8f3ec;
+--gold:#c9a96e;
+--gold-light:#e8d5b0;
+--charcoal:#1a1614;
+--rose:#c4856a;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:'Cormorant Garamond',serif;
+background:var(--charcoal);
+min-height:100dvh;
+overflow-x:hidden;
+}
+
+/* custom cursor only desktop */
+@media (hover:hover) and (pointer:fine){
+body{cursor:none}
+}
+
+.cursor{
+width:10px;height:10px;
+background:var(--gold);
+border-radius:50%;
+position:fixed;
+top:0;left:0;
+pointer-events:none;
+z-index:9999;
+transform:translate(-50%,-50%);
+mix-blend-mode:screen;
+transition:.2s;
+}
+.cursor-ring{
+width:36px;height:36px;
+border:1px solid rgba(201,169,110,.5);
+border-radius:50%;
+position:fixed;
+top:0;left:0;
+pointer-events:none;
+z-index:9998;
+transform:translate(-50%,-50%);
+transition:.2s;
+}
+
+.scene{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:60px 40px;
+position:relative;
+z-index:1;
+}
+
+/* Header */
+.header{text-align:center;margin-bottom:70px}
+.subtitle{
+font-family:'Cinzel',serif;
+font-size:11px;
+letter-spacing:5px;
+color:var(--gold);
+text-transform:uppercase;
+margin-bottom:16px;
+opacity:.8;
+}
+h1{
+font-family:'Cinzel',serif;
+font-size:clamp(32px,5vw,62px);
+font-weight:400;
+color:var(--cream);
+}
+h1 em{
+display:block;
+font-style:italic;
+font-weight:300;
+color:var(--gold-light);
+letter-spacing:4px;
+}
+
+/* Cards layout */
+.strip-wrapper{
+width:100%;
+overflow:hidden;
+}
+
+.cards-track{
+display:flex;
+}
+
+.card{
+position:relative;
+flex:0 0 clamp(200px,20vw,280px);
+aspect-ratio:2/3;
+text-decoration:none;
+overflow:hidden;
+transition:.6s cubic-bezier(.16,1,.3,1);
+}
+
+/* hover expand desktop */
+@media (hover:hover) and (pointer:fine){
+
+.cards-track:has(.card:hover) .card:not(:hover){
+flex-basis:180px;
+filter:brightness(.4) saturate(.3);
+}
+.cards-track:has(.card:hover) .card:hover{
+flex-basis:380px;
+}
+
+}
+
+.card-bg{
+position:absolute;
+inset:0;
+transition:.8s;
+}
+
+.card:hover .card-bg{transform:scale(1.06)}
+
+.card-1 .card-bg{background:linear-gradient(160deg,#1a0f0a,#c4856a)}
+.card-2 .card-bg{background:linear-gradient(160deg,#0a0f1a,#4a7fa5)}
+.card-3 .card-bg{background:linear-gradient(160deg,#0f1a0a,#6a9e4a)}
+.card-4 .card-bg{background:linear-gradient(160deg,#1a1510,#c9a96e)}
+.card-5 .card-bg{background:linear-gradient(160deg,#1a0a18,#a56a9e)}
+.card-6 .card-bg{background:linear-gradient(160deg,#0f1518,#4a8fa5)}
+
+.card::after{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.75),transparent 60%);
+}
+
+.card-content{
+position:absolute;
+bottom:24px;
+left:24px;
+z-index:2;
+}
+
+.card-num{
+font-family:'Cinzel',serif;
+font-size:11px;
+letter-spacing:4px;
+color:#fff;
+}
+
+/* Footer */
+.footer{
+margin-top:60px;
+text-align:center;
+}
+.footer-text{
+font-family:'Cinzel',serif;
+font-size:10px;
+letter-spacing:6px;
+color:rgba(255,255,255,.3);
+text-transform:uppercase;
+}
+
+/* ========================= */
+/* MOBILE FIX */
+/* ========================= */
+
+@media (max-width:768px){
+
+.scene{
+padding:40px 0;
+justify-content:flex-start;
+}
+
+.strip-wrapper{
+overflow-x:auto;
+overflow-y:hidden;
+-webkit-overflow-scrolling:touch;
+}
+
+.cards-track{
+gap:20px;
+padding:0 24px;
+scroll-snap-type:x mandatory;
+}
+
+.card{
+flex:0 0 75%;
+max-width:320px;
+scroll-snap-align:center;
+}
+
+.footer{padding:0 24px}
+
+.cursor,.cursor-ring{display:none}
+
+}
+
+</style>
 </head>
 
 <body>
-    <h1>Chọn mẫu thiệp cưới</h1>
-    <a href="mau1/">Mẫu 1</a>
-    <a href="mau2/">Mẫu 2</a>
-    <a href="mau3/">Mẫu 3</a>
-    <a href="mau4/">Mẫu 4</a>
-    <a href="mau5/">Mẫu 5</a>
-    <a href="mau6/">Mẫu 6</a>
-</body>
 
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="scene">
+
+<div class="header">
+<p class="subtitle">Wedding Collection · 2026</p>
+<h1>Chọn mẫu <em>thiệp cưới</em></h1>
+</div>
+
+<div class="strip-wrapper">
+<div class="cards-track">
+
+<a href="mau1/" class="card card-1">
+<div class="card-bg"></div>
+<div class="card-content"><div class="card-num">Mẫu I</div></div>
+</a>
+
+<a href="mau2/" class="card card-2">
+<div class="card-bg"></div>
+<div class="card-content"><div class="card-num">Mẫu II</div></div>
+</a>
+
+<a href="mau3/" class="card card-3">
+<div class="card-bg"></div>
+<div class="card-content"><div class="card-num">Mẫu III</div></div>
+</a>
+
+<a href="mau4/" class="card card-4">
+<div class="card-bg"></div>
+<div class="card-content"><div class="card-num">Mẫu IV</div></div>
+</a>
+
+<a href="mau5/" class="card card-5">
+<div class="card-bg"></div>
+<div class="card-content"><div class="card-num">Mẫu V</div></div>
+</a>
+
+<a href="mau6/" class="card card-6">
+<div class="card-bg"></div>
+<div class="card-content"><div class="card-num">Mẫu VI</div></div>
+</a>
+
+</div>
+</div>
+
+<div class="footer">
+<div class="footer-text">Wedding Collection · Vuốt để chọn mẫu</div>
+</div>
+
+</div>
+
+<script>
+/* custom cursor desktop only */
+if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+
+const cursor=document.getElementById("cursor");
+const ring=document.getElementById("cursorRing");
+let mx=0,my=0,rx=0,ry=0;
+
+document.addEventListener("mousemove",e=>{
+mx=e.clientX;my=e.clientY;
+cursor.style.left=mx+"px";
+cursor.style.top=my+"px";
+});
+
+function animate(){
+rx+=(mx-rx)*.12;
+ry+=(my-ry)*.12;
+ring.style.left=rx+"px";
+ring.style.top=ry+"px";
+requestAnimationFrame(animate);
+}
+animate();
+
+}
+</script>
+
+</body>
 </html>
