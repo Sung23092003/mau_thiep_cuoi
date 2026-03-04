@@ -11,6 +11,7 @@
     --wine-light: #8b3a4a;
     --gold: #b8956e;
     --gold-light: #d4a574;
+    --gold-dark: #a07d5a;
     --cream: #faf5f5;
     --cream-dark: #f0e6e4;
     --text-dark: #333333;
@@ -956,7 +957,7 @@ body::before {
     gap: 8px;
     margin-top: 15px;
     padding: 10px 20px;
-    background: var(--wine);
+    background: var(--gold);
     color: #fff;
     text-decoration: none;
     font-size: 12px;
@@ -965,7 +966,7 @@ body::before {
 
 .event-card-mini.featured .map-link {
     background: #fff;
-    color: var(--wine);
+    color: var(--gold);
 }
 
 .map-link:hover {
@@ -1414,7 +1415,7 @@ body::before {
     display: inline-block;
     margin-top: 15px;
     padding: 10px 25px;
-    background: var(--wine);
+    background: var(--gold);
     color: white;
     text-decoration: none;
     font-size: 12px;
@@ -1873,7 +1874,7 @@ body::before {
 .submit-btn-scrapbook {
     width: 100%;
     padding: 16px;
-    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-dark) 100%);
+    background: var(--gold);
     color: white;
     border: none;
     font-family: 'Cormorant Garamond', serif;
@@ -1890,17 +1891,17 @@ body::before {
 }
 
 .submit-btn-scrapbook:hover {
-    background: linear-gradient(135deg, var(--wine-light) 0%, var(--wine) 100%);
+    background: var(--gold-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(114, 47, 55, 0.2);
+    box-shadow: 0 5px 20px rgba(184, 149, 110, 0.3);
 }
 
 .submit-btn-scrapbook.primary {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
 }
 
 .submit-btn-scrapbook.primary:hover {
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 100%);
 }
 
 /* ================================================
@@ -2030,8 +2031,8 @@ body::before {
 }
 
 .rsvp-events .event-option input:checked + .event-box {
-    border-color: var(--wine);
-    background: var(--wine);
+    border-color: var(--gold);
+    background: var(--gold);
     color: #fff;
 }
 
@@ -2159,7 +2160,7 @@ body::before {
 .submit-btn {
     width: 100%;
     padding: 15px;
-    background: var(--wine);
+    background: var(--gold);
     color: white;
     border: none;
     font-family: 'Cormorant Garamond', serif;
@@ -2173,7 +2174,7 @@ body::before {
 }
 
 .submit-btn:hover {
-    background: var(--wine-light);
+    background: var(--gold-dark);
     transform: translateY(-2px);
 }
 
