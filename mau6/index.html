@@ -96,8 +96,7 @@
                     <p class="location-addr">T‑Trung, Văn Giang, Hưng Yên</p>
                 </div>
 
-                <a
-                    href="https://www.google.com/maps/search/?api=1&query=121+Dang+Huy+Tru+Hoa+Minh+Lien+Chieu+Da+Nang"
+                <a href="https://www.google.com/maps/search/?api=1&query=121+Dang+Huy+Tru+Hoa+Minh+Lien+Chieu+Da+Nang"
                     target="_blank" class="invite-cta">Xem Chỉ Đường</a>
             </div>
         </section>
@@ -377,6 +376,11 @@
                 </form>
 
                 <!-- Wish List Display -->
+                <div class="wish-list-header">
+                    <div class="wish-list-title">Lời Chúc</div>
+                    <button class="wish-view-all" id="viewAllWishes" onclick="toggleWishes()" style="display: none;">Xem
+                        tất cả</button>
+                </div>
                 <div class="wish-list" id="wishList"></div>
             </div>
         </section>
@@ -419,7 +423,7 @@
                         <label class="field-label">Bạn sẽ tham dự chứ? *</label>
                         <div class="radio-options">
                             <label class="radio-option">
-                                <input type="radio" name="attendance" value="yes" checked>
+                                <input type="radio" name="attendance" value="yes" required>
                                 <span class="radio-box">Tôi sẽ tham dự</span>
                             </label>
                             <label class="radio-option">
@@ -487,15 +491,26 @@
         <!-- Section 7: Gift -->
         <section class="section section-gift" id="gift">
             <div class="gift-card" data-scroll>
-                <div class="gift-qr" onclick="openQrModal()">
-                    <img src="assets/img/qr.png" alt="QR">
-                    <span>Tap to view</span>
+
+                <h3 class="gift-title">Gửi Quà Mừng</h3>
+
+                <p class="gift-sub">
+                    Nếu bạn muốn gửi một lời chúc nhỏ đến cô dâu chú rể
+                </p>
+
+                <div class="gift-qr-wrapper" onclick="openQrModal()">
+                    <div class="gift-qr">
+                        <img src="assets/img/qr.png" alt="QR chuyển khoản">
+                    </div>
+                    <span class="gift-tap">Chạm để xem QR</span>
                 </div>
-                <h3>Gửi quà mừng</h3>
-                <p>Cảm ơn mọi người đã gửi quà cho cô dâu chú rể</p>
+
+                <p class="gift-note">
+                    Cảm ơn tình cảm của mọi người dành cho chúng mình
+                </p>
+
             </div>
         </section>
-
 
         <!-- Section 8: Final -->
         <section class="section section-final" id="final">
@@ -543,7 +558,8 @@
     <!-- Music -->
     <div class="music-control">
         <button class="music-btn playing" id="musicToggle">
-            <i class="fas fa-music"></i>
+            <img src="assets/img/icons/playing-icon.png" alt="Music" class="music-icon">
+        </button>
         </button>
         <audio id="bgMusic" loop>
             <source src="assets/media/song.mp3" type="audio/mp3">

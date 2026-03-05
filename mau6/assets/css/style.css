@@ -1685,6 +1685,44 @@ form {
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid var(--border-light);
+    max-height: 300px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-light) transparent;
+}
+
+.wish-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.wish-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.wish-list::-webkit-scrollbar-thumb {
+    background: var(--accent-light);
+    border-radius: 3px;
+}
+
+.wish-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.wish-view-all {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: var(--font-display);
+}
+
+.wish-view-all:hover {
+    color: var(--accent-dark);
 }
 
 .wish-list-title {
@@ -1693,7 +1731,6 @@ form {
     text-align: center;
     color: var(--text-primary);
     margin-bottom: 20px;
-    margin-top: 24px;
 }
 
 .wish-empty {
@@ -1743,70 +1780,105 @@ form {
 }
 
 /* ========================================
-   SECTION 7: GIFT
-   ======================================== */
+   SECTION GIFT
+======================================== */
+
 .section-gift {
-    padding-top: 40px;
-    max-width: 560px;
-    margin: 0 auto;
-    position: relative;
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: auto;
 }
+
+/* CARD */
 
 .gift-card {
+    position: relative;
     text-align: center;
-    padding: 50px 60px;
-    background: var(--card-bg);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 60px 40px;
+    background: #ffffff;
+    border-radius: 14px;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        0 2px 6px rgba(0, 0, 0, 0.05);
 }
+
+
+/* TITLE */
+
+.gift-title {
+    font-family: var(--font-serif);
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* SUB TEXT */
+
+.gift-sub {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+}
+
+/* QR WRAPPER */
+
+.gift-qr-wrapper {
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* QR FRAME */
 
 .gift-qr {
-    width: 140px;
-    height: 140px;
-    margin: 0 auto 25px;
-    background: var(--cream-light);
-    border-radius: 8px;
+    width: 160px;
+    height: 160px;
+    padding: 15px;
+    background: #f9f9f9;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: transform 0.3s var(--ease);
+
+    transition: all 0.35s ease;
 }
 
-.gift-qr:hover {
-    transform: scale(1.05);
+/* QR HOVER */
+
+.gift-qr-wrapper:hover .gift-qr {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .gift-qr img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     object-fit: contain;
 }
 
-.gift-qr span {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    color: var(--text-muted);
-    margin-top: 5px;
+/* TAP TEXT */
+
+.gift-tap {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: #999;
 }
 
-.gift-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--heading-color);
-    margin-bottom: 8px;
-}
+/* NOTE */
 
-.gift-card>p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
+.gift-note {
+    margin-top: 30px;
     font-style: italic;
+    color: #777;
+    font-size: 0.95rem;
 }
 
 /* ========================================
@@ -1900,6 +1972,16 @@ form {
     color: var(--text-secondary);
 }
 
+.gift-card::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 108px;
+    height: 80px;
+    background: url(../img/icons/rose.jpg) no-repeat center / contain;
+    opacity: .7;
+}
 /* Full QR Modal */
 .full-qr-modal {
     display: none;
@@ -2145,13 +2227,13 @@ form {
     backdrop-filter: blur(10px);
 }
 
-.music-btn:hover {
-    background: var(--accent);
-    color: var(--white);
-    transform: scale(1.1);
+.music-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
 }
 
-.music-btn.playing i {
+.music-btn.playing .music-icon {
     animation: spin 3s linear infinite;
 }
 
