@@ -1750,6 +1750,34 @@ body::before {
     padding: 120px 20px;
     background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner images */
+.wishes-section::before,
+.wishes-section::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.wishes-section::before {
+    top: 20px;
+    left: 20px;
+    background-image: url('assets/img/icons/flower.png');
+}
+
+.wishes-section::after {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('assets/img/icons/heart.png');
+    transform: rotate(180deg);
 }
 
 .wishes-section::before {
@@ -1764,6 +1792,27 @@ body::before {
     position: relative;
     box-shadow: 0 10px 40px rgba(114, 47, 55, 0.06);
     border-radius: 4px;
+}
+
+/* Card Decoration Image */
+.card-decoration {
+    width: 100%;
+    max-width: 80px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+}
+
+.wishes-card .card-decoration {
+    max-width: 60px;
+}
+
+.rsvp-card .card-decoration {
+    max-width: 80px;
+}
+
+.gift-card .card-decoration {
+    max-width: 100px;
 }
 
 .wishes-intro {
@@ -1912,6 +1961,34 @@ body::before {
     padding: 120px 20px;
     background: linear-gradient(180deg, #faf5f5 0%, #fff 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner images */
+.rsvp-section::before,
+.rsvp-section::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.rsvp-section::before {
+    top: 20px;
+    left: 20px;
+    background-image: url('assets/img/icons/ring.png');
+}
+
+.rsvp-section::after {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('assets/img/icons/bow-heart.png');
+    transform: rotate(180deg);
 }
 
 .rsvp-section::before {
@@ -1939,7 +2016,6 @@ body::before {
     box-shadow: 0 10px 40px rgba(114, 47, 55, 0.08);
     border-radius: 4px;
 }
-
 .rsvp-intro {
     text-align: center;
     font-family: 'Cormorant Garamond', serif;
@@ -2048,6 +2124,34 @@ body::before {
     padding: 120px 20px;
     background: linear-gradient(180deg, #fff 0%, #faf5f5 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner images */
+.gift-section::before,
+.gift-section::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.gift-section::before {
+    top: 20px;
+    left: 20px;
+    background-image: url('assets/img/icons/lixi.png');
+}
+
+.gift-section::after {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('assets/img/icons/flower.png');
+    transform: rotate(180deg);
 }
 
 .gift-section::before {
@@ -2063,6 +2167,15 @@ body::before {
     box-shadow: 0 10px 40px rgba(114, 47, 55, 0.08);
     border-radius: 4px;
     text-align: center;
+}
+
+/* Gate Frame Image */
+.gift-card .gate-frame {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto 25px;
 }
 
 .gift-intro {
