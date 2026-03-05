@@ -289,14 +289,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.openGallery = function(index) {
         currentImageIndex = index;
+        currentScale = 1;
         const lightbox = document.getElementById('galleryLightbox');
         const img = document.getElementById('lightboxImg');
         const totalSpan = document.getElementById('totalImages');
         const currentSpan = document.getElementById('currentIndex');
         
         img.src = galleryImages[currentImageIndex];
+        img.style.transform = 'scale(1)';
+        img.classList.remove('zoomed');
+        img.style.cursor = 'zoom-in';
+        
         totalSpan.textContent = galleryImages.length;
         currentSpan.textContent = currentImageIndex + 1;
+        document.getElementById('zoomLevel').textContent = '100%';
         
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -306,6 +312,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const lightbox = document.getElementById('galleryLightbox');
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
+        currentScale = 1;
+        
+        if (isSlideshow) {
+            toggleSlideshow();
+        }
     };
     
     window.nextImage = function() {
@@ -330,6 +341,105 @@ document.addEventListener('DOMContentLoaded', function() {
         currentSpan.textContent = currentImageIndex + 1;
     }
     
+    // ========== Zoom Functionality ==========
+    let currentScale = 1;
+    const ZOOM_STEP = 0.25;
+    const MAX_ZOOM = 3;
+    const MIN_ZOOM = 0.5;
+    
+    window.zoomIn = function() {
+        if (currentScale < MAX_ZOOM) {
+            currentScale = Math.min(MAX_ZOOM, currentScale + ZOOM_STEP);
+            updateZoom();
+        }
+    };
+    
+    window.zoomOut = function() {
+        if (currentScale > MIN_ZOOM) {
+            currentScale = Math.max(MIN_ZOOM, currentScale - ZOOM_STEP);
+            updateZoom();
+        }
+    };
+    
+    function updateZoom() {
+        const img = document.getElementById('lightboxImg');
+        const zoomLevel = document.getElementById('zoomLevel');
+        
+        img.style.transform = `scale(${currentScale})`;
+        zoomLevel.textContent = `${Math.round(currentScale * 100)}%`;
+        
+        if (currentScale > 1) {
+            img.classList.add('zoomed');
+            img.style.cursor = 'zoom-out';
+        } else {
+            img.classList.remove('zoomed');
+            img.style.cursor = 'zoom-in';
+        }
+    }
+    
+    // Toggle zoom on image click
+    document.getElementById('lightboxContent')?.addEventListener('click', function(e) {
+        if (e.target.tagName === 'IMG') {
+            if (currentScale > 1) {
+                currentScale = 1;
+            } else {
+                currentScale = 1.5;
+            }
+            updateZoom();
+        }
+    });
+    
+    // ========== Download Functionality ==========
+    window.downloadImage = function() {
+        const img = document.getElementById('lightboxImg');
+        const link = document.createElement('a');
+        link.href = img.src;
+        link.download = 'wedding-photo.jpg';
+        link.click();
+    };
+    
+    // ========== Slideshow Functionality ==========
+    let isSlideshow = false;
+    let slideshowInterval = null;
+    const SLIDESHOW_TIME = 3000;
+    
+    window.toggleSlideshow = function() {
+        const btn = document.getElementById('slideshowBtn');
+        const progress = document.getElementById('slideshowProgress');
+        const progressBar = document.getElementById('progressBar');
+        
+        isSlideshow = !isSlideshow;
+        
+        if (isSlideshow) {
+            btn.querySelector('.play-icon').style.display = 'none';
+            btn.querySelector('.pause-icon').style.display = 'block';
+            progress.classList.add('active');
+            progressBar.style.width = '0%';
+            
+            let progressValue = 0;
+            slideshowInterval = setInterval(() => {
+                progressValue += 100 / (SLIDESHOW_TIME / 100);
+                progressBar.style.width = `${progressValue}%`;
+                
+                if (progressValue >= 100) {
+                    nextImage();
+                    progressValue = 0;
+                    progressBar.style.width = '0%';
+                }
+            }, 100);
+        } else {
+            btn.querySelector('.play-icon').style.display = 'block';
+            btn.querySelector('.pause-icon').style.display = 'none';
+            progress.classList.remove('active');
+            progressBar.style.width = '0%';
+            
+            if (slideshowInterval) {
+                clearInterval(slideshowInterval);
+                slideshowInterval = null;
+            }
+        }
+    };
+    
     // Close lightbox on escape key
     document.addEventListener('keydown', function(e) {
         const lightbox = document.getElementById('galleryLightbox');
@@ -337,12 +447,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'Escape') closeGallery();
             if (e.key === 'ArrowRight') nextImage();
             if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === '+' || e.key === '=') zoomIn();
+            if (e.key === '-') zoomOut();
         }
     });
     
     // Close lightbox on background click
     document.getElementById('galleryLightbox')?.addEventListener('click', function(e) {
-        if (e.target === this) closeGallery();
+        if (e.target.classList.contains('lightbox-content') || e.target.classList.contains('lightbox')) {
+            closeGallery();
+        }
     });
     
 });
