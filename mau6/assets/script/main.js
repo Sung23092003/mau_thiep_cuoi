@@ -209,7 +209,10 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // ========== Draggable Polaroids (section-polaroid) ==========
+    // DISABLED: Drag functionality removed
     (function enablePolaroidDrag() {
+        // Drag functionality disabled per user request
+        return;
         const wrap = document.querySelector('.section-polaroid .polaroid-wrap');
         if (!wrap) return;
         let zCounter = 10;
