@@ -1100,7 +1100,7 @@ body {
    SECTION 3: EVENTS
    ======================================== */
 .section-events {
-    padding-top: 40px;
+    padding: 40px 16px 0;
 }
 
 .events-timeline {
@@ -2344,6 +2344,10 @@ form {
     .checkbox-box {
         width: 100%;
         max-width: 100%;
+    }
+
+    .lightbox-header{
+        justify-content: space-between !important;
     }
 
 }
