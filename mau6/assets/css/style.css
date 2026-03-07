@@ -1590,6 +1590,7 @@ form {
 .section-wish {
     padding-top: 50px;
     max-width: 560px;
+    width: auto !important;
     margin: 0 auto;
     position: relative;
 }
@@ -1620,7 +1621,9 @@ form {
 }
 
 .wish-card {
-    background: var(--card-bg);
+    background: url("../img/background/background-wish.png") no-repeat center;
+    background-size: cover;
+
     border: 1px solid var(--border-light);
     padding: 50px 60px;
     border-radius: 12px;
@@ -2346,7 +2349,7 @@ form {
         max-width: 100%;
     }
 
-    .lightbox-header{
+    .lightbox-header {
         justify-content: space-between !important;
     }
 
