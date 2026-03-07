@@ -1324,12 +1324,21 @@ body {
    SECTION 6: RSVP
    ======================================== */
 .section-rsvp {
-    padding-top: 50px;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 560px;
     position: relative;
-    z-index: 100;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ảnh cặp đôi */
+.rsvp-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url("https://tuart.net/wp-content/uploads/2022/01/269908773_1589108441488553_3656569515718892913_n.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
@@ -1343,6 +1352,7 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 100;
+    min-width: 70dvh;
 }
 
 .rsvp-card h2 {
@@ -1606,18 +1616,6 @@ form {
     background-repeat: no-repeat;
     opacity: 0.4;
     pointer-events: none;
-}
-
-.section-wish::before {
-    top: 0;
-    left: -80px;
-    background-image: url('../img/icons/heart.png');
-}
-
-.section-wish::after {
-    bottom: 0;
-    right: -80px;
-    background-image: url('../img/icons/flower.png');
 }
 
 .wish-card {
