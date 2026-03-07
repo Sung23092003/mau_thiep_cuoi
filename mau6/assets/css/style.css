@@ -47,7 +47,7 @@ html {
 
 body {
     font-family: var(--font-serif);
-    background: url('../img/background.jpg') no-repeat center center;
+    background: url('../img/background/background.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     color: var(--text-primary);
@@ -192,8 +192,8 @@ body {
     align-items: center;
     justify-content: flex-end;
     padding: 0;
-    max-width: 100%;
-    margin: 0;
+    max-width: 568px;
+    margin: 0 auto;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -276,14 +276,29 @@ body {
     max-width: 560px;
     width: 100%;
     margin: 0 auto;
+    position: relative;
 }
 
 .invite-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-light);
-    padding: 28px 24px;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
+    background-image: url("../img/background/background-invite.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 32px 26px;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* Ảnh bức thư */
+.invite-envelope {
+    position: absolute;
+    bottom: 14%;
+    rotate: 9deg;
+    left: 28%;
+    width: 90%;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .invite-head {
@@ -442,8 +457,18 @@ body {
 }
 
 @media (max-width : 768px) {
-    .section-invite{
+    .section-invite {
         padding: 0 16px;
+    }
+
+    .invite-envelope {
+        position: absolute;
+        bottom: -4%;
+        rotate: 9deg;
+        left: 72%;
+        width: 36%;
+        z-index: 0;
+        pointer-events: none;
     }
 }
 
@@ -995,7 +1020,11 @@ body {
 }
 
 .calendar-container {
-    background: var(--card-bg);
+    background-image: url("https://tuart.net/wp-content/uploads/2022/01/270284502_1589108414821889_2158477857562109361_n.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     border: 1px solid var(--border-light);
     padding: 30px;
     border-radius: 12px;
@@ -1004,6 +1033,8 @@ body {
 
 .calendar-frame {
     text-align: center;
+    padding: 20px;
+    backdrop-filter: blur(6px);
 }
 
 .calendar-month {
@@ -1011,7 +1042,7 @@ body {
     font-family: var(--font-display);
     font-size: 0.9rem;
     letter-spacing: 0.15em;
-    color: var(--accent);
+    color: var(--blue-light);
     margin-bottom: 20px;
 }
 
@@ -1025,13 +1056,13 @@ body {
 .calendar-grid span {
     font-family: var(--font-serif);
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #fff;
     padding: 6px 0;
 }
 
 .calendar-grid span:first-child,
 .calendar-grid span:nth-child(8) {
-    color: var(--text-muted);
+    color: var(--cream);
 }
 
 .calendar-grid .heart {
@@ -2297,7 +2328,7 @@ form {
     .invite-card {
         width: 100%;
         max-width: 100%;
-        padding: 25px 16px;
+        padding: 34px;
         margin: 0;
         border-radius: 0;
     }
