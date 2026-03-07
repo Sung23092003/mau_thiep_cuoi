@@ -66,8 +66,19 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // ========== QR Modal ==========
-    window.openQrModal = function() {
-        document.getElementById('qrModal')?.classList.add('active');
+    window.openQrModal = function(type = 'default') {
+        const modal = document.getElementById('qrModal');
+        const qrText = modal?.querySelector('.qr-text');
+        
+        if (type === 'groom') {
+            qrText.textContent = 'Quét QR để gửi quà mừng chú rể 💕';
+        } else if (type === 'bride') {
+            qrText.textContent = 'Quét QR để gửi quà mừng cô dâu 💕';
+        } else {
+            qrText.textContent = 'Quét QR để gửi quà mừng 💕';
+        }
+        
+        modal?.classList.add('active');
     };
     
     window.closeQrModal = function() {

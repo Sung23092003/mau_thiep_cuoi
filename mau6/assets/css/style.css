@@ -1757,8 +1757,12 @@ form {
 
 .section-gift {
     padding: 60px 20px;
-    max-width: 600px;
+    max-width: 900px;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
 
 /* CARD */
@@ -1775,6 +1779,25 @@ form {
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.08),
         0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* Gift Cards Layout - Two Columns */
+.section-gift .gift-card {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+}
+
+@media (max-width: 768px) {
+    .section-gift {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section-gift .gift-card {
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 
@@ -1944,7 +1967,18 @@ form {
     color: var(--text-secondary);
 }
 
-.gift-card::after {
+.gift-card--groom::after {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 108px;
+    height: 80px;
+    background: url(../img/icons/rose.jpg) no-repeat center / contain;
+    opacity: .7;
+}
+
+.gift-card--bride::after {
     content: "";
     position: absolute;
     top: 0%;

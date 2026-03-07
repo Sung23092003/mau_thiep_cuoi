@@ -246,27 +246,33 @@
         <section class="section section-polaroid" id="polaroid">
             <div class="polaroid-wrap" data-scroll>
                 <figure class="polaroid p1">
-                    <img src="https://tuart.net/wp-content/uploads/2022/01/270007076_1590377478028316_2479682634983129752_n.jpg" alt="Kỷ niệm 1">
+                    <img src="https://tuart.net/wp-content/uploads/2022/01/270007076_1590377478028316_2479682634983129752_n.jpg"
+                        alt="Kỷ niệm 1">
                     <figcaption>20.01.2027</figcaption>
                 </figure>
                 <figure class="polaroid p2">
-                    <img src="https://tuart.net/wp-content/uploads/2022/01/270038227_1590377888028275_7378369519155438796_n.jpg" alt="Kỷ niệm 2">
+                    <img src="https://tuart.net/wp-content/uploads/2022/01/270038227_1590377888028275_7378369519155438796_n.jpg"
+                        alt="Kỷ niệm 2">
                     <figcaption>20.01.2027</figcaption>
                 </figure>
                 <figure class="polaroid p3">
-                    <img src="https://tuart.net/wp-content/uploads/2022/01/270040105_1590378021361595_7680722783894482858_n.jpg" alt="Kỷ niệm 3">
+                    <img src="https://tuart.net/wp-content/uploads/2022/01/270040105_1590378021361595_7680722783894482858_n.jpg"
+                        alt="Kỷ niệm 3">
                     <figcaption>20.01.2027</figcaption>
                 </figure>
                 <figure class="polaroid p4">
-                    <img src="https://tuart.net/wp-content/uploads/2022/01/267915224_1589108354821895_1708587972940067243_n.jpg" alt="Kỷ niệm 4">
+                    <img src="https://tuart.net/wp-content/uploads/2022/01/267915224_1589108354821895_1708587972940067243_n.jpg"
+                        alt="Kỷ niệm 4">
                     <figcaption>20.01.2027</figcaption>
                 </figure>
                 <figure class="polaroid p5">
-                    <img src="https://tuart.net/wp-content/uploads/2022/01/269908773_1589108441488553_3656569515718892913_n.jpg" alt="Kỷ niệm 5">
+                    <img src="https://tuart.net/wp-content/uploads/2022/01/269908773_1589108441488553_3656569515718892913_n.jpg"
+                        alt="Kỷ niệm 5">
                     <figcaption>20.01.2027</figcaption>
                 </figure>
                 <figure class="polaroid p6">
-                    <img src="https://tuart.net/wp-content/uploads/2022/01/269290494_1589108498155214_7498874220762564654_n.jpg" alt="Kỷ niệm 6">
+                    <img src="https://tuart.net/wp-content/uploads/2022/01/269290494_1589108498155214_7498874220762564654_n.jpg"
+                        alt="Kỷ niệm 6">
                     <figcaption>20.01.2027</figcaption>
                 </figure>
                 <!-- Charms (icons nhỏ xinh) -->
@@ -401,7 +407,7 @@
 
         <!-- Section 6: RSVP -->
         <section class="section section-rsvp" id="rsvp">
-             <div class="rsvp-bg"></div>
+            <div class="rsvp-bg"></div>
 
             <div class="rsvp-card" data-scroll>
                 <h2>Xác Nhận Tham Dự</h2>
@@ -490,17 +496,36 @@
 
         <!-- Section 7: Gift -->
         <section class="section section-gift" id="gift">
-            <div class="gift-card" data-scroll>
+            <div class="gift-card gift-card--groom" data-scroll>
 
-                <h3 class="gift-title">Gửi Quà Mừng</h3>
+                <h3 class="gift-title">Gửi Mừng Chú Rể</h3>
 
                 <p class="gift-sub">
-                    Nếu bạn muốn gửi một lời chúc nhỏ đến cô dâu chú rể
+                    Nếu bạn muốn gửi lời chúc đến chú rể
                 </p>
 
-                <div class="gift-qr-wrapper" onclick="openQrModal()">
+                <div class="gift-qr-wrapper" onclick="openQrModal('groom')">
                     <div class="gift-qr">
-                        <img src="assets/img/qr.png" alt="QR chuyển khoản">
+                        <img src="assets/img/qr.png" alt="QR chuyển khoản chú rể">
+                    </div>
+                    <span class="gift-tap">Chạm để xem QR</span>
+                </div>
+                <p class="gift-note">
+                    Cảm ơn tình cảm của mọi người dành cho chúng mình
+                </p>
+            </div>
+
+            <div class="gift-card gift-card--bride" data-scroll>
+
+                <h3 class="gift-title">Gửi Mừng Cô Dâu</h3>
+
+                <p class="gift-sub">
+                    Nếu bạn muốn gửi lời chúc đến cô dâu
+                </p>
+
+                <div class="gift-qr-wrapper" onclick="openQrModal('bride')">
+                    <div class="gift-qr">
+                        <img src="assets/img/qr.png" alt="QR chuyển khoản cô dâu">
                     </div>
                     <span class="gift-tap">Chạm để xem QR</span>
                 </div>
