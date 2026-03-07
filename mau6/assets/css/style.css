@@ -1352,7 +1352,7 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 100;
-    min-width: 70dvh;
+    width: 70dvh;
 }
 
 .rsvp-card h2 {
