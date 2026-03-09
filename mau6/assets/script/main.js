@@ -328,14 +328,9 @@ document.addEventListener('DOMContentLoaded', function() {
     })();
     
     // ========== Gallery Lightbox ==========
-    const galleryImages = [
-        'assets/img/gallery/11.jpg',
-        'assets/img/gallery/12.jpg',
-        'assets/img/gallery/13.jpg',
-        'assets/img/gallery/14.jpg',
-        'assets/img/gallery/15.jpg',
-        'assets/img/gallery/16.jpg'
-    ];
+    // Get gallery images dynamically from HTML
+    const galleryItems = document.querySelectorAll('.gallery-masonry .gallery-img img');
+    const galleryImages = Array.from(galleryItems).map(img => img.src);
     
     let currentImageIndex = 0;
     
