@@ -1020,7 +1020,8 @@ body {
 }
 
 .calendar-container {
-    background-image: url("https://tuart.net/wp-content/uploads/2022/01/270284502_1589108414821889_2158477857562109361_n.jpg");
+    position: relative;
+    background-image: url("https://tuart.net/wp-content/uploads/2022/01/270007076_1590377478028316_2479682634983129752_n.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1029,12 +1030,38 @@ body {
     padding: 30px;
     border-radius: 12px;
     backdrop-filter: blur(10px);
+    min-height: 100dvh;
+}
+
+.calendar-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 35%;
+    
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.65) 0%,
+        rgba(0,0,0,0.45) 30%,
+        rgba(0,0,0,0.25) 60%,
+        rgba(0,0,0,0) 100%
+    );
+
+    border-radius: 0 0 12px 12px;
+    pointer-events: none;
 }
 
 .calendar-frame {
+    position: absolute;
+    top: 40%;
+    right: 0%;
     text-align: center;
     padding: 20px;
-    backdrop-filter: blur(6px);
+    width: 70%;
+    height: auto;
 }
 
 .calendar-month {
@@ -1051,6 +1078,7 @@ body {
     grid-template-columns: repeat(7, 1fr);
     gap: 4px;
     text-align: center;
+    font-weight: 600;
 }
 
 .calendar-grid span {
@@ -1058,6 +1086,10 @@ body {
     font-size: 0.9rem;
     color: #fff;
     padding: 6px 0;
+    text-shadow:
+        1px 1px 2px black,
+        0 0 1em,
+        0 0 0.2em;
 }
 
 .calendar-grid span:first-child,
@@ -1084,6 +1116,55 @@ body {
     animation: beat 1.5s ease-in-out infinite;
 }
 
+.countdown {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 4%;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    z-index: 2;
+}
+
+.count-label {
+    font-family: var(--font-script); 
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+}
+
+.count-time-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.count-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.count-time span {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+}
+
+.count-time small {
+    font-family: var(--font-serif);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--cream);
+}
 @keyframes beat {
 
     0%,
@@ -1793,7 +1874,7 @@ form {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .section-gift .gift-card {
         max-width: 100%;
         width: 100%;

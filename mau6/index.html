@@ -117,7 +117,6 @@
             </div>
         </div>
 
-
         <!-- Section 2: Calendar -->
         <section class="section section-calendar" id="calendar">
             <div class="calendar-container" data-scroll>
@@ -133,9 +132,28 @@
                         <span>29</span><span>30</span><span>31</span>
                     </div>
                 </div>
+                <div class="countdown">
+                    <span class="count-label">Chỉ còn</span>
+                    <div class="count-time-wrapper">
+                        <div class="count-time">
+                            <span id="days">00</span><small>ngày</small>
+                        </div>
+
+                        <div class="count-time">
+                            <span id="hours">00</span><small>giờ</small>
+                        </div>
+
+                        <div class="count-time">
+                            <span id="minutes">00</span><small>phút</small>
+                        </div>
+
+                        <div class="count-time">
+                            <span id="seconds">00</span><small>giây</small>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-
 
         <!-- Decorative Line 3: Bottom Left -->
         <div class="deco-line deco-line-left" data-scroll>
@@ -667,6 +685,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="assets/script/main.js"></script>
+    <script src="assets/script/countdown.js"></script>
 </body>
 
 </html>
