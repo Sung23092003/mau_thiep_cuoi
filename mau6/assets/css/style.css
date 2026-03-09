@@ -2425,6 +2425,7 @@ form {
     opacity: 0;
     transition: opacity 0.8s var(--ease);
     z-index: 10;
+    width: 80%;
 }
 
 .final-thanks[data-scroll] {
