@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="assets/img/logo.png">
+    <title>Thiệp Cưới - Phúc Quỳnh & Lê Hương</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url("assets/img/background/background5.png") center/cover no-repeat;
+            cursor: pointer;
+        }
+
+        /* container */
+        .invite-wrapper {
+            position: relative;
+            width: 340px;
+            text-align: center;
+        }
+
+        /* text */
+        .invite-title {
+            color: #8d6e63;
+            font-size: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        /* tên khách */
+        .invite-guest {
+            font-size: 22px;
+            color: #6d4c41;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        /* tên cô dâu chú rể */
+        .couple-name {
+            margin-top: 20px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 34px;
+            color: #b08968;
+        }
+
+        .invite-line {
+            width: 160px;
+            height: 1px;
+            background: #c9a961;
+            margin: 15px auto 40px;
+        }
+
+        /* envelope */
+        .envelope {
+            position: relative;
+            width: 260px;
+            margin: auto;
+        }
+
+        .envelope img {
+            width: 100%;
+            display: block;
+        }
+
+        /* center waxseal */
+        .waxseal {
+            position: absolute;
+            top: 62%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: bumpbamp 1.5s infinite alternate;
+        }
+
+        .seal-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Great Vibes', cursive;
+            font-size: 12px;
+            color: white;
+            letter-spacing: 1px;
+        }
+
+        .waxseal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes bumpbamp {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+
+        .click-hint {
+            position: absolute;
+            top: 65%;
+            left: 53%;
+            transform: translateX(-50%) !important;
+            width: 40px;
+            animation: blink 1.5s infinite;
+        }
+
+        .click-hint img {
+            width: 100%;
+        }
+
+        /* hiệu ứng mờ hiện */
+        @keyframes blink {
+            0% {
+                opacity: 0.2;
+                transform: translateX(-50%) scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1);
+            }
+
+            100% {
+                opacity: 0.2;
+                transform: translateX(-50%) scale(0.9);
+            }
+        }
+
+        /* decorations */
+        .decor-left {
+            position: absolute;
+            top: 0;
+            width: 80px;
+        }
+
+        .decor-right {
+            position: absolute;
+            top: 120px;
+            width: 80px;
+        }
+
+        .decor-left {
+            left: -40px;
+        }
+
+        .decor-right {
+            right: -40px;
+        }
+
+        .decor-left img,
+        .decor-right img {
+            width: 100%;
+        }
+
+        /* date */
+        .date {
+            margin-top: 40px;
+            font-size: 26px;
+            letter-spacing: 3px;
+            color: #a1887f;
+        }
+    </style>
+</head>
+
+<body onclick="openInvitation()">
+
+    <div class="invite-wrapper">
+
+        <div class="invite-title">
+            TRÂN TRỌNG KÍNH MỜI
+        </div>
+
+        <div class="invite-guest">
+            Tên khách mời 
+        </div>
+
+        <div class="invite-line"></div>
+
+        <div class="envelope">
+
+            <img src="assets/img/icons/envelope2.png">
+
+            <div class="waxseal">
+                <img src="assets/img/waxseal/red-3d.png">
+                <span class="seal-text">QH</span>
+            </div>
+
+            <div class="click-hint">
+                <img src="assets/img/icons/click.png">
+            </div>
+
+            <div class="decor-left">
+                <img src="assets/img/icons/heart-2.png">
+            </div>
+
+            <div class="decor-right">
+                <img src="assets/img/icons/flower.png">
+            </div>
+
+        </div>
+
+        <div class="date">
+            20.01.2027
+        </div>
+        <div class="couple-name">
+            Phúc Quỳnh & Lê Hương
+        </div>
+    </div>
+
+    <script>
+        function openInvitation() {
+            window.location.href = "index.html"
+        }
+    </script>
+
+</body>
+
+</html>
