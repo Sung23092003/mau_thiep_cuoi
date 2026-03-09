@@ -299,6 +299,14 @@ body {
     width: 90%;
     z-index: -1;
     pointer-events: none;
+    opacity: 0;
+    transform: rotate(9deg) translateY(30px) scale(0.9);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.invite-envelope[data-scroll].visible {
+    opacity: 1;
+    transform: rotate(9deg) translateY(0) scale(1);
 }
 
 .invite-head {
@@ -1332,6 +1340,19 @@ body {
     object-fit: contain;
 }
 
+.section-couple-full[data-scroll] {
+    transform: scale(1.1);
+}
+
+.section-couple-full[data-scroll].visible {
+    transform: scale(1);
+}
+
+.section-couple-full[data-scroll],
+.section-couple-full[data-scroll].visible {
+    transition: transform 1s var(--ease);
+}
+
 /* ========================================
    SECTION 5: GALLERY
    ======================================== */
@@ -1355,6 +1376,14 @@ body {
 .gallery-header {
     text-align: center;
     margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+}
+
+.gallery-header[data-scroll].visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .gallery-header h2 {
@@ -1409,6 +1438,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 560px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 /* Ảnh cặp đôi */
@@ -2376,11 +2408,22 @@ form {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%);
     color: white;
     font-family: var(--font-script);
     font-size: 1.8rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.8s var(--ease);
+}
+
+.final-thanks[data-scroll] {
+    transform: translateX(-50%) translateY(30px);
+}
+
+.final-thanks[data-scroll].visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
 }
 
 .final-thanks p {
@@ -2752,6 +2795,7 @@ form {
     border-radius: 2px;
     overflow: hidden;
     opacity: 0;
+    z-index: 1;
     transition: opacity 0.3s;
 }
 

@@ -25,6 +25,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 entry.target.classList.add('visible');
+            } else {
+                // Remove visible class when scrolling back up
+                entry.target.classList.remove('visible');
+                
+                const parent = entry.target.closest('.section');
+                if (parent) {
+                    parent.classList.remove('visible');
+                }
+                
+                // Reset transition delay
+                entry.target.style.transitionDelay = '0s';
             }
         });
     }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
