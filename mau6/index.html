@@ -514,44 +514,23 @@
 
         <!-- Section 7: Gift -->
         <section class="section section-gift" id="gift">
-            <div class="gift-card gift-card--groom" data-scroll>
+            <div class="gift-card gift-card--nobackground" data-scroll>
 
-                <h3 class="gift-title">Gửi Mừng Chú Rể</h3>
+                <h3 class="gift-title">Gửi quà mừng tới dâu rể</h3>
 
                 <p class="gift-sub">
-                    Nếu bạn muốn gửi lời chúc đến chú rể
+                    Nếu bạn muốn gửi lời chúc đến cô dâu và chú rể
                 </p>
 
-                <div class="gift-qr-wrapper" onclick="openQrModal('groom')">
-                    <div class="gift-qr">
-                        <img src="assets/img/qr.png" alt="QR chuyển khoản chú rể">
-                    </div>
-                    <span class="gift-tap">Chạm để xem QR</span>
+                <div class="gift-icon-wrapper" onclick="openQrModal()">
+                    <img src="assets/img/envelope3.png" alt="Envelope" class="gift-envelope">
                 </div>
                 <p class="gift-note">
                     Cảm ơn tình cảm của mọi người dành cho chúng mình
                 </p>
+
             </div>
-
-            <div class="gift-card gift-card--bride" data-scroll>
-
-                <h3 class="gift-title">Gửi Mừng Cô Dâu</h3>
-
-                <p class="gift-sub">
-                    Nếu bạn muốn gửi lời chúc đến cô dâu
-                </p>
-
-                <div class="gift-qr-wrapper" onclick="openQrModal('bride')">
-                    <div class="gift-qr">
-                        <img src="assets/img/qr.png" alt="QR chuyển khoản cô dâu">
-                    </div>
-                    <span class="gift-tap">Chạm để xem QR</span>
-                </div>
-
-                <p class="gift-note">
-                    Cảm ơn tình cảm của mọi người dành cho chúng mình
-                </p>
-
+        </section>
             </div>
         </section>
 
@@ -586,11 +565,43 @@
         <div class="qr-modal-overlay" onclick="closeQrModal()"></div>
         <div class="qr-modal-content">
             <button class="qr-modal-close" onclick="closeQrModal()">&times;</button>
-            <div class="qr-frame" onclick="openFullQrModal()">
-                <img src="assets/img/qr.png" alt="QR Code" class="qr-image">
-                <div class="qr-view-hint">Click để phóng to</div>
+
+            <!-- gift box design -->
+            <div class="gift-box">
+                <h2 class="gift-box-title">Hộp Quà Yêu Thương</h2>
+                <p class="gift-box-instruction">Quét QR code để gửi yêu thương trực tiếp tới:</p>
+
+                <div class="gift-grid">
+                    <div class="gift-item groom">
+                        <div class="gift-item-header">Chú rể</div>
+                        <div class="gift-card">
+                            <div class="qr-wrapper" onclick="openFullQrModal('groom')">
+                                <img src="assets/img/qr.png" alt="QR code chú rể" class="qr-image">
+                            </div>
+                            <div class="gift-details">
+                                <div class="gift-bank">CINELOVE BANK</div>
+                                <div class="gift-account">123456789</div>
+                                <button class="copy-btn" onclick="copyAccount('123456789')">Sao chép số TK</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gift-item bride">
+                        <div class="gift-item-header">Cô dâu</div>
+                        <div class="gift-card">
+                            <div class="qr-wrapper" onclick="openFullQrModal('bride')">
+                                <img src="assets/img/qr.png" alt="QR code cô dâu" class="qr-image">
+                            </div>
+                            <div class="gift-details">
+                                <div class="gift-bank">CINELOVE BANK</div>
+                                <div class="gift-account">123456789</div>
+                                <button class="copy-btn" onclick="copyAccount('123456789')">Sao chép số TK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="qr-text">Quét QR để gửi quà mừng 💕</p>
+
         </div>
     </div>
 
@@ -686,6 +697,11 @@
                 <span id="currentIndex">1</span> / <span id="totalImages">6</span>
             </div>
         </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toastMessage"></span>
     </div>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

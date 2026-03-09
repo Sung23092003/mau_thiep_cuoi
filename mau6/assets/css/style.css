@@ -654,7 +654,7 @@ body {
 
 /* Lixi - Shake animation (like red envelope) */
 .icon-lixi {
-    animation: lixiShake 2.5s ease-in-out infinite;
+    /* animation: lixiShake 2.5s ease-in-out infinite; */
 }
 
 @keyframes lixiShake {
@@ -1041,14 +1041,12 @@ body {
     bottom: 0;
 
     height: 35%;
-    
-    background: linear-gradient(
-        to top,
-        rgba(0,0,0,0.65) 0%,
-        rgba(0,0,0,0.45) 30%,
-        rgba(0,0,0,0.25) 60%,
-        rgba(0,0,0,0) 100%
-    );
+
+    background: linear-gradient(to top,
+            rgba(0, 0, 0, 0.65) 0%,
+            rgba(0, 0, 0, 0.45) 30%,
+            rgba(0, 0, 0, 0.25) 60%,
+            rgba(0, 0, 0, 0) 100%);
 
     border-radius: 0 0 12px 12px;
     pointer-events: none;
@@ -1132,13 +1130,13 @@ body {
 }
 
 .count-label {
-    font-family: var(--font-script); 
+    font-family: var(--font-script);
     font-size: 1.6rem;
     letter-spacing: 0.05em;
     color: var(--cream);
 }
 
-.count-time-wrapper{
+.count-time-wrapper {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1165,6 +1163,7 @@ body {
     letter-spacing: 0.15em;
     color: var(--cream);
 }
+
 @keyframes beat {
 
     0%,
@@ -1846,13 +1845,114 @@ form {
     gap: 30px;
 }
 
+/* gift box variant inside QR modal */
+.gift-box {
+    width: 100%;
+    color: var(--text-primary);
+}
+
+.gift-box-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.gift-box-instruction {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.gift-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.gift-item {
+    flex: 0 0 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-item-header {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.gift-card {
+    width: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-item.groom .gift-card {
+    border-color: #4a90e2;
+    /* blue */
+}
+
+.gift-item.bride .gift-card {
+    border-color: #e91e63;
+    /* pink */
+}
+
+.qr-wrapper {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.qr-wrapper .qr-image {
+    width: 100%;
+    display: block;
+}
+
+.gift-details {
+    text-align: center;
+    width: 100%;
+}
+
+.gift-bank {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.gift-account {
+    font-family: monospace;
+    margin: 4px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    word-break: break-all;
+}
+
+.copy-btn {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    background: var(--white);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.copy-btn:hover {
+    background: var(--accent-light);
+}
+
 /* CARD */
 
 .gift-card {
     position: relative;
     text-align: center;
     padding: 60px 40px;
-    background: #ffffff;
     border-radius: 14px;
 
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -1860,6 +1960,20 @@ form {
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.08),
         0 2px 6px rgba(0, 0, 0, 0.05);
+    max-height: 90%;
+}
+
+.gift-card--nobackground {
+    border: none;
+    box-shadow: none;
+}
+
+.gift-card--groom {
+    border: 3px solid #4A90D9;
+}
+
+.gift-card--bride {
+    border: 3px solid #E91E8C;
 }
 
 /* Gift Cards Layout - Two Columns */
@@ -1899,53 +2013,52 @@ form {
     margin-bottom: 35px;
 }
 
-/* QR WRAPPER */
+/* ICON WRAPPER */
 
-.gift-qr-wrapper {
+.gift-icon-wrapper {
     cursor: pointer;
     display: inline-block;
 }
 
-/* QR FRAME */
+/* ENVELOPE */
 
-.gift-qr {
-    width: 160px;
-    height: 160px;
-    padding: 15px;
-    background: #f9f9f9;
-
-    border-radius: 12px;
-
-    border: 1px solid rgba(0, 0, 0, 0.08);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: all 0.35s ease;
-}
-
-/* QR HOVER */
-
-.gift-qr-wrapper:hover .gift-qr {
-    transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
-.gift-qr img {
+.gift-envelope {
     width: 120px;
-    height: 120px;
-    object-fit: contain;
+    height: auto;
+    animation: lixiShake 2.5s ease-in-out infinite;
 }
 
-/* TAP TEXT */
+@keyframes shake {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
 
-.gift-tap {
-    display: block;
-    margin-top: 10px;
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    color: var(--dominant-light);
+    25% {
+        transform: translateX(-5px) translateY(-5px);
+    }
+
+    50% {
+        transform: translateX(5px) translateY(5px);
+    }
+
+    75% {
+        transform: translateX(-5px) translateY(5px);
+    }
+
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* CLICK ICON */
+
+/* QR IMAGE RESPONSIVE ON MOBILE */
+@media (max-width: 768px) {
+    .qr-image {
+        width: 100%;
+        max-width: 180px;
+        height: auto;
+    }
 }
 
 /* NOTE */
@@ -1988,20 +2101,31 @@ form {
 
 .qr-modal-content {
     position: relative;
-    background: var(--white);
-    padding: 40px;
-    border-radius: 16px;
+    background: var(--card-bg-light);
+    padding: 25px 20px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+    width: 85%;
+    max-width: 560px;
+    height: auto;
+    max-height: 90%;
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    .qr-modal-content {
+        width: 96%;
+    }
 }
 
 .qr-modal-close {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 32px;
-    color: var(--text-muted);
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 49px;
+    padding: 0 20px;
+    color: var(--cream);
     background: none;
     border: none;
     cursor: pointer;
@@ -2010,7 +2134,34 @@ form {
 }
 
 .qr-modal-close:hover {
-    color: var(--accent);
+    opacity: 0.8;
+}
+
+.qr-frames {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    /* wrap on small screens to avoid overflow */
+}
+
+@media (max-width: 768px) {
+    .qr-frames {
+        gap: 20px;
+    }
+
+    .gift-envelope {
+        width: 90px;
+        /* shrink envelope slightly on narrow screens */
+    }
+}
+
+.qr-frame-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
 }
 
 .qr-frame {
@@ -2055,7 +2206,7 @@ form {
     left: 0%;
     width: 108px;
     height: 80px;
-    background: url(../img/icons/rose.jpg) no-repeat center / contain;
+    background: url(../img/icons/envelope3.png) no-repeat center / contain;
     opacity: .7;
 }
 
@@ -2106,15 +2257,17 @@ form {
 }
 
 .full-qr-close {
-    position: absolute;
-    top: -50px;
+    position: fixed;
+    top: 0;
     right: 0;
-    font-size: 36px;
-    color: var(--white);
+    font-size: 49px;
+    padding: 0 20px;
+    color: var(--cream);
     background: none;
     border: none;
     cursor: pointer;
-    transition: transform 0.3s;
+    line-height: 1;
+    transition: color 0.3s;
 }
 
 .full-qr-close:hover {
@@ -2227,7 +2380,7 @@ form {
     color: white;
     font-family: var(--font-script);
     font-size: 1.8rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .final-thanks p {
@@ -2488,7 +2641,6 @@ form {
     .lightbox-header {
         justify-content: space-between !important;
     }
-
 }
 
 /* ========================================
@@ -2717,4 +2869,35 @@ form {
         width: 36px;
         height: 36px;
     }
+}
+
+/* ========================================
+   TOAST NOTIFICATION
+   ======================================== */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--white);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-family: var(--font-serif);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 10000;
+}
+
+.toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast.hide {
+    transform: translateX(-50%) translateY(10px);
 }

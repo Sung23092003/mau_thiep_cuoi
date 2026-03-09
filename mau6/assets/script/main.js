@@ -66,18 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
     // ========== QR Modal ==========
-    window.openQrModal = function(type = 'default') {
+    window.openQrModal = function() {
         const modal = document.getElementById('qrModal');
-        const qrText = modal?.querySelector('.qr-text');
-        
-        if (type === 'groom') {
-            qrText.textContent = 'Quét QR để gửi quà mừng chú rể 💕';
-        } else if (type === 'bride') {
-            qrText.textContent = 'Quét QR để gửi quà mừng cô dâu 💕';
-        } else {
-            qrText.textContent = 'Quét QR để gửi quà mừng 💕';
-        }
-        
         modal?.classList.add('active');
     };
     
@@ -85,13 +75,50 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('qrModal')?.classList.remove('active');
     };
     
-    window.openFullQrModal = function() {
-        document.getElementById('fullQrModal')?.classList.add('active');
+    window.openFullQrModal = function(type) {
+        const modal = document.getElementById('fullQrModal');
+        const img = modal?.querySelector('.full-qr-image');
+        // choose image based on type if provided
+        if (img) {
+            if (type === 'groom') {
+                img.src = 'assets/img/qr.png';
+                img.alt = 'QR Code Chú Rể';
+            } else if (type === 'bride') {
+                img.src = 'assets/img/qr.png';
+                img.alt = 'QR Code Cô Dâu';
+            }
+        }
+        modal?.classList.add('active');
     };
     
     window.closeFullQrModal = function() {
         document.getElementById('fullQrModal')?.classList.remove('active');
     };
+
+    // ========== Copy account number helper ==========
+    window.copyAccount = function(number) {
+        if (!number) return;
+        navigator.clipboard.writeText(number).then(() => {
+            showToast('Số tài khoản đã được sao chép');
+        }).catch(() => {
+            showToast('Không thể sao chép số tài khoản');
+        });
+    };
+
+    // ========== Toast notification ==========
+    function showToast(message) {
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        toastMessage.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+            toast.classList.remove('show');
+            toast.classList.add('hide');
+            setTimeout(() => {
+                toast.classList.remove('hide');
+            }, 300);
+        }, 3000);
+    }
     
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
