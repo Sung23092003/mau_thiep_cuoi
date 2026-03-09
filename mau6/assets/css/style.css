@@ -2331,6 +2331,14 @@ form {
     margin: 0 auto;
 }
 
+.section-final::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+}
+
 .section-final::before {
     content: '';
     position: absolute;
@@ -2416,6 +2424,7 @@ form {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.8s var(--ease);
+    z-index: 10;
 }
 
 .final-thanks[data-scroll] {
@@ -2429,6 +2438,17 @@ form {
 
 .final-thanks p {
     margin: 5px 0;
+}
+
+.thanks-message {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* ========================================
