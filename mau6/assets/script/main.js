@@ -86,19 +86,27 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('qrModal')?.classList.remove('active');
     };
     
-    window.openFullQrModal = function(type) {
+    window.openFullQrModal = function(element) {
         const modal = document.getElementById('fullQrModal');
         const img = modal?.querySelector('.full-qr-image');
-        // choose image based on type if provided
-        if (img) {
-            if (type === 'groom') {
-                img.src = 'assets/img/qr.png';
-                img.alt = 'QR Code Chú Rể';
-            } else if (type === 'bride') {
-                img.src = 'assets/img/qr.png';
-                img.alt = 'QR Code Cô Dâu';
-            }
+        if (!img) return;
+        
+        // Get image src from clicked element or its child img
+        let sourceImg = null;
+        
+        if (element && element.tagName === 'IMG') {
+            // Clicked directly on img
+            sourceImg = element;
+        } else if (element && element.tagName === 'DIV') {
+            // Clicked on wrapper div - get first img inside
+            sourceImg = element.querySelector('img');
         }
+        
+        if (sourceImg) {
+            img.src = sourceImg.src;
+            img.alt = sourceImg.alt || 'QR Code';
+        }
+        
         modal?.classList.add('active');
     };
     
